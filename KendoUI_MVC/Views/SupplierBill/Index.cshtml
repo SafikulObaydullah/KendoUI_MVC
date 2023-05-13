@@ -1,0 +1,130 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+<table id="myTable">
+    <tr>
+        <th>Bill Reference</th>
+        <th>Remarks</th>
+        <th>Adjus Amount</th>
+        <th>Net Payable</th>
+        <th>Adjust Note</th>
+        <th>Action</th>
+    </tr>
+</table>
+
+<form id="form" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="row">
+    <div  class="column" style="background-color:#aaa;width:200px;">
+        <b>General Bill Entry</b>
+    </div>
+    <div class="column" style="background-color:#ccc;">
+        <label for="BillId">Bill Id</label>
+        <input type="search" id="search" />
+    </div>
+    <div class="column3" style="background-color:#aaa;width:200px;">
+         @*<button type="submit" id="add" class="btn btn-primary">Add</button>*@
+         <button type="submit" id="add" class="save-button">Save</button>
+    </div>
+    <div class="column" style="background-color:#ccc;">
+            <button id="add" onclick="resetForm()" class="btn btn-primary">Clear</button>
+    </div>
+    <div class="column" style="background-color:#ccc;">
+        <select id="Report" placeholder="Select Report...">
+             <option value="1">DIRD Report.</option>
+            <option value="2">Garments Report</option>
+            <option value="3">Dipta Report</option>
+            <option value="4">DIRD Report</option>
+            <option value="5">DIRD Report</option>
+            <option value="6">Dipta Report</option>
+        </select>
+    </div>
+</div>
+<div >
+    <h2>BILL INFORMATION</h2>
+    <div class="row">
+        <div class="column" style="width: 250px;margin-left:10px;margin-right:10px">
+        <label for="company">Company</label>
+                <select id="company" name="company" placeholder="Select Company...">
+                    <option selected="selected">Select</option>
+            <option value="1">DIRD Composite Textiles Ltd.</option>
+            <option value="2">DIRD Garments Limited</option>
+            <option value="3">Dipta Garments Ltd.</option>
+            <option value="4">DIRD Washing Plant Ltd.</option>
+            <option value="5">DIRD Engineering Limited</option>
+            <option value="6">Dipta Orchids Ltd</option>
+        </select>
+    </div>
+    <div class="column" style="width:250px;margin-left:10px;margin-right:10px ">
+        <label for="Supplier">Supplier</label>
+            <select id="Supplier" placeholder="Select Supplier...">
+            <option value="1">Textile Antares (0002)</option>
+            <option value="2">Flora Limited (0003)</option>
+            <option value="3">Techno Spinning Mills Ltd</option>
+            <option value="4">Square Yarns Ltd. (0007)</option>
+            <option value="5">DIRD Engineering Limited</option>
+            <option value="6">Square Yarns Ltd. (0007)</option>
+        </select>
+    </div>
+    <div class="column" style="width:250px;margin-left:10px;margin-right:10px">
+            <label for="PaymentMode">Payment Mode</label>
+            <select id="PaymentMode" placeholder="Select Payment Mode...">
+            <option value="1">Bank Gurantee(226)</option>
+             <option value="2">Cash(014)</option>
+            <option value="3">Cheque (CHQ)(154)</option>
+            <option value="4">FDD(205)</option>
+            <option value="5">LC(015)</option>
+            <option value="6">FTT(172)</option>
+        </select>
+    </div>
+        <div class="column" style="width:250px;margin-left:10px;margin-right:10px">
+                <label for="Currency">Currency</label>
+                <select id="Currency" placeholder="Select Currency...">
+                <option value="1">Dollar </option>
+                <option value="2">Euro</option>
+                <option value="3">Pound</option>
+                <option value="4">Swiss Frank</option>
+                <option value="5">Taka</option>
+                <option value="6">Yen</option>
+            </select>
+        </div>
+    <div class="column" style="width:250px;margin-left:10px;margin-right:10px">
+                <label for="BillReference">Bill Reference</label>
+                <input type="text" id="BillReference" name="BillRef" />
+    </div>
+</div>
+<div class="row">
+        <div class="column2" style="width:250px;margin-left:10px;margin-right:10px">
+            <label for="remarks">Remarks</label>
+                <input type="text" id="remarks" name="Remarks" />
+        </div>
+        <div class="column2" style="width:250px;margin-left:10px;margin-right:10px">
+            <label for="adjustamount">Adjust Amount</label>
+                <input type="text" id="adjustamount" name="adjustamount" />
+        </div>
+    <div class="column2" style="width:250px;margin-left:10px;margin-right:10px">
+            <label for="netpayable">Net payable</label>
+                <input type="text" id="netpayable" name="netpayable" />
+    </div>
+    <div class="column2" style="width:250px;margin-left:10px;margin-right:10px">
+            <label for="adjustnote">Adjust Note</label>
+                <input type="text" id="adjustnote" name="adjustnote" />
+    </div>
+   </div>
+</div>
+</form>
+<div>
+    <div><h2>Product Information</h2></div>
+    <select id="Report" placeholder="Select Report...">
+        <option value="1">Product 1t.</option>
+        <option value="2">Product 2</option>
+        <option value="3">Product 3</option>
+        <option value="4">Product 4</option>
+        <option value="5">Product 5</option>
+        <option value="6">Product 6</option>
+    </select>
+</div>
+<h5 class="text-center my-3">Tasks</h5>
+<div id="tasks">
+</div>
