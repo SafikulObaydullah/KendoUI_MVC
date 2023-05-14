@@ -8,5 +8,9 @@ namespace KendoUI_MVC.Controllers
         {
             return View();
         }
-    }
+        public IActionResult UserForm()
+        {
+           return View();
+        }
+   }
 }

@@ -1,0 +1,78 @@
+﻿* {
+   box-sizing: border-box;
+}
+
+/* Create four equal columns that floats next to each other */
+.column {
+   float: left;
+   width: 20%;
+   padding: 10px;
+   height: 80px; /* Should be removed. Only for demonstration */
+   
+}
+.column2 {
+   padding:10px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+   content: "";
+   display: table;
+   clear: both;
+}
+.save-button {
+   position: absolute;
+   top: 96px;
+   right: 10px;
+}
+.button-group {
+   position: absolute;
+   top: 96px;
+   left: 1080px;
+   float: right;
+}
+
+.button-group button {
+   margin-left: 5px;
+}
+.dropdown {
+   width: 400px;
+   height: 28px;
+   padding: 10px;
+   font-size: 16px;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+   appearance: none;
+   -webkit-appearance: none;
+   background-color: #fff;
+   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1.5 4.5 2.914 3.086 6 6.172 9.086 3.086 10.5 4.5z'/%3E%3C/svg%3E");
+   background-repeat: no-repeat;
+   background-position: right 10px center;
+   cursor: pointer;
+}
+.maindrop {
+   width: 200px;
+   height: 15px;
+   padding: 10px;
+   font-size: 16px;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+   appearance: none;
+   -webkit-appearance: none;
+   background-color: #fff;
+   /*background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1.5 4.5 2.914 3.086 6 6.172 9.086 3.086 10.5 4.5z'/%3E%3C/svg%3E");*/
+   background-repeat: no-repeat;
+   background-position: right 10px center;
+   cursor: pointer;
+}
+input {
+   width: 200px;
+   height: 25px;
+   border: 1px solid #ccc;
+   padding: 10px;
+   border-radius: 4px;
+   font-size: 16px;
+   margin: 5px;
+}
+
+
