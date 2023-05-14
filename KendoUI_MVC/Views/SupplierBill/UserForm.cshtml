@@ -3,112 +3,201 @@
    Layout = "~/Views/Shared/_Layout.cshtml";
 
 }
+<div id="example">
+    <div id="megaStore" class="k-content" style="position: fixed; width: 100%; z-index: 100000; box-shadow: 5px 3px 5px #95bdc6; font-size: 12px;">
+        <ul id="menu" style="background: linear-gradient(to bottom, #51bbd2 0%, #2d97af 100%); color: white;" data-role="menu" class="k-widget k-reset k-header k-menu k-menu-horizontal" tabindex="0" role="menubar" aria-activedescendant="menu_mn_active">
+            <li class="k-item k-menu-item k-state-default k-first" role="menuitem" id="menu_mn_active">
+                <span class="k-link k-menu-link"><span id="goto-home"> <img alt="icon" class="k-image" style="margin: -5px 4px 0 -4px;" src="./images/dird_icon.png">Accounts  </span></span>
+            </li>
+            <li aria-haspopup="true" aria-expanded="false" class="k-item k-menu-item k-state-default" role="menuitem" style="z-index: auto;" id="menuactive">
 
 
-<form>
-   <div class="row">
-      <div class="column">
-         <p style="
-  font-size: 16px;
-    line-height: 1.5;
-    color: #333;
-    margin: 0 0 10px;
-    padding: 0;
-    background-color: aquamarine;
-    width: 155px;
-    height: 37px;
-    text-align: center;
-">General Bill Entry</p>
-         <div>
-            <input type="search" />
-         </div>
-      </div>
-      
-      <div class="button-group">
-         <button class="btn btn-primary">Save</button>
-         <button class="btn btn-secondary">Cancel</button>
-         <button class="btn btn-danger">Delete</button>
-      </div>
+                <ul class="nav-menu k-widget k-reset k-header k-menu k-menu-horizontal" data-role="menu" role="menubar" tabindex="0"></ul>
+            </li>
+            <li aria-haspopup="true" aria-expanded="false" class="k-item k-menu-item k-state-default" role="menuitem" style="z-index: auto;" id="menuactive--mobile">
 
-   </div>
-   <br />
-   <br />
-   <div class="row">
-      <div class="column"  >
-         <p style="margin:5px;">Column 2</p>
-         <select class="maindrop">
-            <option value="">--Select--</option>
-            <option value="option1">Option 1</option>
-            <option value="option2">Option 2</option>
-            <option value="option3">Option 3</option>
-         </select>
-      </div>
-      <div class="column">
-         <p style="margin:5px;">Column 2</p>
-         <select class="maindrop">
-            <option value="">--Select--</option>
-            <option value="option1">Option 1</option>
-            <option value="option2">Option 2</option>
-            <option value="option3">Option 3</option>
-         </select>
-      </div>
-      <div class="column">
-         <p style="margin:5px;">Column 2</p>
-         <select class="maindrop">
-            <option value="">--Select--</option>
-            <option value="option1">Option 1</option>
-            <option value="option2">Option 2</option>
-            <option value="option3">Option 3</option>
-         </select>
-      </div>
-      <div class="column">
-         <p style="margin:5px;">Column 2</p>
-         <select class="maindrop">
-            <option value="">--Select--</option>
-            <option value="option1">Option 1</option>
-            <option value="option2">Option 2</option>
-            <option value="option3">Option 3</option>
-         </select>
-      </div>
-      <div class="column">
-         <label for="BillReference">Bill Reference</label>
-         <input type="text" id="BillReference" name="BillReference">
-      </div>
-   </div>
-   <br />
-   <div class="row">
-      <div class="column">
-         <label for="BillReference">Bill Reference</label>
-         <input type="text" id="BillReference" name="BillReference">
-      </div>
-      <div class="column" >
-         <label for="BillReference">Bill Reference</label>
-         <input type="text" id="BillReference" name="BillReference">
-      </div>
-      <div class="column" >
-         <label for="BillReference">Bill Reference</label>
-         <input type="text" id="BillReference" name="BillReference">
-      </div>
-      <div class="column"  >
-         <label for="BillReference">Bill Reference</label>
-         <input type="text" id="BillReference" name="BillReference">
-      </div>
-      <br />
-      <br />
-      <br />
-      <div class="column2"  >
-         <h5>PRODUCT INFORMATION</h5>
-         <select class="dropdown">
-            <option value="">--Select--</option>
-            <option value="option1">Option 1</option>
-            <option value="option2">Option 2</option>
-            <option value="option3">Option 3</option>
-         </select>
 
-      </div>
-   </div>
+                <ul class="nav-menu k-widget k-reset k-header k-menu k-menu-horizontal" data-role="menu" tabindex="0" role="menubar"><li class="k-item k-menu-item k-state-default k-first k-last" role="menuitem"><span class="k-link k-menu-link">@*MENU*@</span></li></ul>
+            </li>
+            <li style="float: right; z-index: auto;" id="user" aria-haspopup="true" class="k-item k-menu-item k-state-default k-last" role="menuitem">
+                <span class="k-link k-menu-link"><span>@*Md.Obaydullah (164254)*@</span><span class="k-menu-expand-arrow k-icon k-i-arrow-60-down"></span></span>
+
+
+                <div class="k-animation-container" style="width: 138.141px; height: 51.9531px; overflow: hidden; display: none; position: absolute; z-index: 10002; top: 27.7969px; left: 0px;" aria-hidden="true">
+                    <ul class="k-group k-menu-group k-popup k-reset" role="menu" data-role="popup" style="max-height: 374px; overflow: auto; position: absolute; font-size: 12px; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot; Arial &quot;Noto Sans&quot; &quot;Liberation Sans&quot;, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot; font-stretch: 100%; font-style: normal; font-weight: 400; line-height: normal; display: none; transform: translateY(-51.9531px);" aria-hidden="true">
+                        <li style="font-size:13px;" id="windowChangePassword" class="k-item k-menu-item k-state-default k-first" role="menuitem">
+                           @* <span class="k-link k-menu-link">
+                                Change Password
+                            </span>*@
+                        </li>
+                        <li class="k-item k-menu-item k-state-default k-last" role="menuitem">
+                            <span class="k-link k-menu-link">
+                                <form action="/AccountingSystem/Home/LogOff" id="logoutForm" method="post">
+                                    <a href="javascript:document.getElementById('logoutForm').submit()" id="btnLogoff"><span style="color:#787878;"> Logout</span></a>
+                                </form>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+
+</div>
+<br />
+<br />
+<div class="maindiv" style="background:#f8f9fc">
+    <form>
+    <nav>
+        <ul>
+                <li><span style=" background:#a5d70c;color: white;padding: 5px 5px 5px 0; font-size:14px; font-weight:bold; margin-right:55px">General Bill Entry</span></li>
+            <li><label>Bill Id</label></li>
+            <li>
+                <input type="text" placeholder="Search...">
+                    <button type="submit">@*<i class="fas fa-search"></i>*@</button>
+            </li>
+            <div class="button-group">
+                    <button class="success k-button">Save</button>
+                    <button class="danger k-button">Clear</button>
+                <select id="Report" placeholder="Select Report...">
+                    <option selected="selected" value="1">DIRD Report.</option>
+                    <option value="2">Garments Report</option>
+                    <option value="3">Dipta Report</option>
+                    <option value="4">DIRD Report</option>
+                    <option value="5">DIRD Report</option>
+                    <option value="6">Dipta Report</option>
+                </select>
+            </div>
+        </ul>
+    </nav>
+        <button id="k-expander-header" type="button" class="collapsible">BILL INFORMATION</button>
+            <div class="content">
+            <div class="row">
+                <div class="column">
+                    <p style="margin:5px;">Company</p>
+                    <select id="Company" class="maindrop">
+                        <i class="fa fa-caret-down"></i>
+                        <option value="0">Select Company</option>
+                        <option value="1">DIRD Composite Textiles Ltd.</option>
+                        <option value="2">DIRD Garments Limited</option>
+                        <option value="3">Dipta Garments Ltd.</option>
+                        <option value="4">DIRD Washing Plant Ltd.</option>
+                        <option value="5">DIRD Engineering Limited</option>
+                        <option value="6">Dipta Orchids Ltd</option>
+                    </select>
+                </div>
+                <div class="column">
+                    <p style="margin:5px;">Supplier</p>
+                    <select id="Supplier" class="maindrop">
+                        <option selected="selected" value="1">Select Supplier</option>
+                        <option value="2">Flora Limited (0003)</option>
+                        <option value="3">Techno Spinning Mills Ltd</option>
+                        <option value="4">Square Yarns Ltd. (0007)</option>
+                        <option value="5">DIRD Engineering Limited</option>
+                        <option value="6">Square Yarns Ltd. (0007)</option>
+                    </select>
+                </div>
+                <div class="column">
+                    <p style="margin:5px;">Payment Mode</p>
+                    <select id="paymentMode" class="maindrop">
+                        <option selected="selected" value="0">Select PaymentMode</option>
+                        <option value="1">Cash(014)</option>
+                        <option value="2">Cash(014)</option>
+                        <option value="3">Cheque (CHQ)(154)</option>
+                        <option value="4">FDD(205)</option>
+                        <option value="5">LC(015)</option>
+                        <option value="6">FTT(172)</option>
+                    </select>
+                </div>
+                <div class="column">
+                    <p style="margin:5px;">Currency</p>
+                    <select id="Currency" class="maindrop">
+                        <option selected="selected" value="0">Select Currency </option>
+                        <option value="1">Euro</option>
+                        <option value="2">Euro</option>
+                        <option value="3">Pound</option>
+                        <option value="4">Swiss Frank</option>
+                        <option value="5">Taka</option>
+                        <option value="6">Yen</option>
+                    </select>
+                </div>
+                <div class="column">
+                    <label for="BillReference">Bill Reference</label>
+                    <input type="text" id="BillReference" name="BillReference">
+                </div>
+            </div>
+        
+            <br />
+            <div class="row">
+                <div class="column">
+                    <label for="Remarks">Remarks</label>
+                    <input type="text" id="Remarks" name="Remarks">
+                </div>
+                <div class="column">
+                    <label for="AdjustAmount">Adjust Amount</label>
+                    <input type="text" id="AdjustAmount" name="AdjustAmount">
+                </div>
+                <div class="column">
+                    <label for="Netpayable">Net payable</label>
+                    <input type="text" id="Netpayable" name="Netpayable">
+                </div>
+                <div class="column">
+                    <label for="AdjustNote">Adjust Note</label>
+                    <input type="text" id="AdjustNote" name="AdjustNote">
+                </div>
+                <br />
+                <br />
+                <br />
+             </div>
+        </div>
+                <button id="k-expander-header" type="button" class="collapsible">PRODUCT INFORMATION</button>
+                <div class="content">
+                    <div class="row">
+                        <div class="column2">
+                        <select class="dropdown">
+                            <option selected value="1">Product 1</option>
+                            <option value="2">Product 2</option>
+                            <option value="3">Product 3</option>
+                            <option value="4">Product 4</option>
+                            <option value="5">Product 5</option>
+                            <option value="6">Product 6</option>
+                        </select>
+                    </div>
+                        <div class="column2">
+                            <button class="btn btn-success" type="submit" style="text-align: center; padding-left: 10px; ">Add</button>
+                        </div>
+                    </div>
+                    
+                </div>
+                <button id="k-expander-header" type="button" class="collapsible">DOCUMENT INFORMATION</button>
+                <div class="content">
+            <span class="k-expander-indicator k-icon k-i-arrow-chevron-down"></span>
+                </div>
+             
+            
+            <script>
+                var coll = document.getElementsByClassName("collapsible");
+                var i;
+
+                for (i = 0; i < coll.length; i++) {
+                    coll[i].addEventListener("click", function () {
+                        this.classList.toggle("active");
+                        var content = this.nextElementSibling;
+                        if (content.style.display === "block") {
+                            content.style.display = "none";
+                        } else {
+                            content.style.display = "block";
+                        }
+                    });
+                }
+            </script>
+
 
 </form>
+
+</div>
 <br />
 <br />
+@*<div id="output"></div>*@
 
