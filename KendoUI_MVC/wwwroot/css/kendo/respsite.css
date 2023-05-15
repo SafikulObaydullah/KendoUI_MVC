@@ -1,0 +1,90 @@
+﻿/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+    #megaStore {
+        width: 100%;
+    }
+
+    #menu h2 {
+        font-size: 1em;
+        text-transform: uppercase;
+        padding: 5px 10px;
+    }
+
+    #template img {
+        margin: 5px 20px 0 0;
+        float: left;
+    }
+
+    #template {
+        width: 900px;
+    }
+
+        #template ol {
+            float: left;
+            margin: 0 0 0 30px;
+            padding: 10px 10px 0 10px;
+        }
+
+        #template:after {
+            content: ".";
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden;
+        }
+
+        #template .k-button {
+            float: left;
+            clear: left;
+            margin: 5px 0 5px 12px;
+        }
+        .k-window-content {
+    overflow:hidden;
+    }
+/*.col-md-2 {
+    -ms-flex: 0 0 16.666667%;
+    flex: 0 0 16.666667%;
+    max-width: 12.666667%;
+}*/
+a {
+    color: white;
+}
+a:hover {
+    color: white;
+    text-decoration: none;
+}
+/*.body-content {
+    background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+    width: 98%;
+    font-family: 'Open Sans', sans-serif;
+    font-size:12px;
+}*/
+.k-card{
+    border-radius:0;
+    border-width:0;
+}
+    .zoom {
+  transition: transform .2s;
+}
+
+.zoom:hover {
+  -ms-transform: scale(1.1); /* IE 9 */
+  -webkit-transform: scale(1.1); /* Safari 3-8 */
+  transform: scale(1.1); 
+}
+
+
+.flex-horizon-end{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}

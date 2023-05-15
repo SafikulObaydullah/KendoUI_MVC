@@ -1,0 +1,287 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+   
+
+}
+<div style="padding-top: 5px; margin-left:-14px; position: fixed; z-index: 10000; background:#a5d70c;height:40px;width:100%">
+    <div class="main-menu" style="position: fixed;left: 7px;margin-top: -3px;padding:3px;">
+        <span style="color: white;padding: 5px 5px 5px 0; font-size:14px; font-weight:bold; margin-right:55px">General Bill Entry</span>
+        <span style="color: black;padding: 5px 5px 5px 5px; font-size:14px; margin-top:-3px;position:sticky"><span>Bill Id </span><input type="number" min="0" style="background-color: white;width:20% " class="textbox" placeholder="Search Bill ID" id="billId" /> </span>
+
+
+        <span class="hidestatus pointer" style="color: #f8f9fc;">___________</span><span onclick="sendToLocation()" style="display:none; position:fixed;font-size: 13px;margin-top:-6px;width:45%" id="billStatus">Successfully Approved by Audit</span>
+        <span style="color: black;padding: 5px 5px 5px 5px; font-size:14px; font-weight:bold; margin-top:-4px;display:none;"> <input style="background-color: white; " class="textbox" placeholder="Write Action Note" id="txtActionNote" /> </span>
+
+    </div>
+
+    <div style="position: fixed;right: 8%;display:block;background: #f8f9fc;" class="select-period k-widget k-button-group"
+         data-role="buttongroup" role="group" tabindex="0">
+        <span id="btnDelete" class="danger" onclick="deleteBill()" style="display:none">
+            Delete
+        </span>
+        
+        <span id="btnApproval" onclick="SendToApproval()" style="display:none" class="warning">
+            Send for Approval
+        </span>
+        <span id="btnSaves" class="success" onclick="SaveBill()">
+            Save
+        </span>
+        <span id="btnClear" class="danger" onclick="clearAll()">
+            Clear
+        </span>
+
+
+
+    </div>
+    <div style="position: fixed; right: 1%; display: block; background: #f8f9fc; margin-top: -5px;">
+
+        <ul id="menuReport">
+            <li>
+                Report
+                <ul>
+                    <li onclick="ViewApprovalReport()">Bill Details</li>
+                </ul>
+            </li>
+        </ul>
+
+
+    </div>
+
+
+</div>
+<br>
+<div class="body-elements" style="font-size:12px;">
+    <span id="spnBillId" style="display:none">0</span>
+
+    <span id="spanTransactionFormId" style="display:none">5</span>
+    <span id="spanCompanyCode" style="display: none"></span>
+    <div id="main-body-el" style="padding-top: 20px; position: sticky;z-index: 1000;">
+        <div id="ex3">
+            <div class="row">
+                <div class="col-md-3"><span style="color:red;">*</span><span>Company</span><input id="ddlCompany" class="Kcombobox" style="width: 100%;" /></div>
+                <div class="col-md-3"><span style="color:red;">*</span><span>Supplier</span><input id="ddlSupplier" class="Kcombobox" style="width: 100%;" /></div>
+                <div class="col-md-2"><span style="color:red;">*</span><span>Payment Mode</span><input style="width: 100%;" id="ddlPaymentMode" /></div>
+                <div class="col-md-2"><span style="color:red;">*</span><span>Currency</span><input id="ddlCurrency" class="Kcombobox" style="width: 100%;" /></div>
+                <div class="col-md-2"><span style="color:red;">*</span><span>Bill Ref</span><input id="txtBillRef" class="tbltextbox" style="width: 100%;" /></div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-3"><span>Remarks</span><input id="txtRemarks" class="tbltextbox" style="width: 100%;" /></div>
+                <div class="col-md-3"><span>Adjust Amount</span><input type="number" min="0" id="txtAdjustAmount" class="tbltextbox" onblur="calculateNetPayable()" style="width: 100%;" /></div>
+                
+                <div class="col-md-2"><span>Net payable</span><input type="number" min="0" id="txtNetPayable" readonly="readonly" class="tbltextbox" style="width: 100%; color:black; background:rgb(231, 231, 231)" data-role="textbox" aria-disabled="false" autocomplete="off"></div>
+
+                <div class="col-md-4">
+                    <span>Adjust Note</span><input id="txtAdjustNote" class="tbltextbox" style="width: 100%;" />
+                    <span id="spnApprovalStatusDoc" style="display:none;"></span>
+                </div>
+
+
+            </div>
+
+        </div>
+        <div id="ex2">
+            <div class="row">
+                <div class="col-md-5"><span>Product</span><input id="txtProductSearch" class="Kcombobox" style="width: 100%;" /></div>
+                <div class="col-md-1"><button class="btn btn-success" id="btnAdd" name="Add" onclick="addProduct()" style="height: 15px; text-align: center; padding-top: 0px; padding-bottom: 10px; margin-top: 19px;"><b>Add</b></button></div>
+            </div>
+
+            <br />
+            <div id="tblProductInfo"></div>
+        </div>
+
+        <div id="ex4">
+            
+            <div id="divDoc">
+                
+
+    @*<script src="/AccountingSystem/Assets/lib/kendoUI/js/nismo.min.js" defer></script>
+    <script src="/AccountingSystem/Scripts/Vendor/qrcode.js"></script>
+    <script src="/AccountingSystem/Assets/lib/CommonUI/js/SupplierBill/FileUpload.js?v=1"></script>*@
+
+    <style>
+       
+        .qr-code-generator {
+            width: 500px;
+            margin: 0 auto;
+        }
+        .qr-code-generator * {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        #qrcode {
+            width: 128px;
+            height: 128px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+            #qrcode a {
+                font-size: 0.8em;
+            }
+
+        .qr-url, .qr-size {
+            padding: 0.5em;
+            border: 1px solid #ddd;
+            border-radius: 2px;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        .qr-url {
+            width: 79%;
+        }
+
+        .qr-size {
+            width: 20%;
+        }
+
+        .generate-qr-code {
+            display: block;
+            width: 100%;
+            margin: 0.5em 0 0;
+            padding: 0.25em;
+            font-size: 1.2em;
+            border: none;
+            cursor: pointer;
+            background-color: #e5554e;
+            color: #fff;
+        }
+         .modal-header {
+        padding: 0.2rem 1rem;
+    }
+
+
+ 
+
+    .modal-backdrop{
+        position:static!important;
+                   top: 0 !important;
+                   left: 0 !important;
+                   z-index: 1040 !important;
+                    width: 100vw !important;
+                    height: 100vh  !important;
+ 
+                }
+        #QRmodal .modal-dialog {
+            width: max-content;
+        }
+
+            #QRmodal .modal-dialog .modal-header {
+                padding: 20px 10px;
+                font-size: 14px;
+                font-weight: bold;
+            }
+
+            #QRmodal .modal-dialog .modal-body {
+                height:250px;
+                /*padding: 10px 100px 10px 80px;*/
+            }
+
+                #QRmodal .modal-dialog .modal-body label span {
+                    margin-left: 10px;
+                    font-size: 14px;
+                }
+       
+                .modal-backdrop.show {
+    opacity: -0.5 !important;
+}
+ </style>
+
+                <div class="row">
+                    <div class="col-md-2"><span>Document Type</span> <input class="Kdropdown" id="ddlDocType" style="width: 100%;" /></div>
+                    <div class="col-md-2"><span>Receiving Date</span> <input class="Kdatepicker" id="txtReceivingDate" style="width: 100%;" /></div><span id="spnDocId" style="display:none;">0</span>
+                    <div class="col-md-1"><button id="btnQrCode" style="margin-top: 14px; margin-right: 20px; background-color: #7ea700; width: 100%;" class="k-button k-primary primaryTextButton">Scan from app</button></div>
+                    <div class="col-md-2"><span>Document </span> <span class="k-icon k-i-copy"></span><input name="files" class="files" id="files" type="file" aria-label="files" /> <span id="fileDetails"></span> </div>
+                    <div class="col-md-2"><span>Description</span> <input class="tbltextbox" id="txtDescription" style="width: 100%;" /></div>
+                    <div class="col-md-2 custombtnflex">
+                        <button id="btnUploadDocument" style="margin-top:14px;background-color:#7ea700;" class="k-button k-primary primaryTextButton">Upload</button>
+                        <button id="btnClearDocument" onclick="ClearDocument()" style="margin-top:14px;background-color:#fa394c" class="k-button k-primary primaryTextButton danger">Clear</button>
+                        <button id="btnRefreshDocument" onclick="GetDocumentInfo()" style="margin-top:14px;background-color:#7ea700" class="k-button k-primary primaryTextButton">Refresh</button>
+                    </div>
+
+                </div>
+
+                <br />
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-6">
+                        <div id="tblDocInfo"></div>
+
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+
+                <div class="modal fade" style="margin-top:35px;" id="QRmodal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title"><span style="font-size:15px;width: 481px;background-color: darkturquoise;font-style: italic;color:white;">For <span id="spnDocName"></span> document upload, please scan the code.After upload successfully,  please click refresh button.</span></h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="qr-code-generator">
+
+                                    <div id="qrcode">
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<hr />
+<footer style="position:fixed;bottom:0;right:1%;">
+    <p style="font-size:14px;">&copy;  Developed By <a href="https://www.ravensystemsltd.com/" target="_blank" style="text-decoration:none;color:#49ead3; font-weight:bold">Raven Systems Ltd.</a></p>
+</footer>
+    
+
+@*<script>
+    $("#user.k-animation-container").css("right", "0");
+
+    $(document).ready(function () {
+        //Preloader
+        preloaderFadeOutTime = 500;
+        function hidePreloader() {
+            var preloader = $('.spinner-wrapper');
+            preloader.fadeOut(preloaderFadeOutTime);
+        }
+
+        navMenu(renderMenu, false);
+        navMenu(renderMobileMenu, true);
+
+        // keep the following function below of all code
+        hidePreloader();
+    });
+
+    function renderMenu(menuEl) {
+        document.querySelector('#menuactive').append(menuEl);
+        $(".nav-menu").kendoMenu();
+    }
+
+    function renderMobileMenu(menuEl) {
+        document.querySelector('#menuactive--mobile').append(menuEl);
+        $(".nav-menu").kendoMenu();
+    }
+
+
+
+</script>*@
