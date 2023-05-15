@@ -17,7 +17,7 @@
 
 
 let suppliers = []; // array to store employee data
-
+let output = "";
 function create() {
     let Company = document.getElementById("Company").value;
     let Supplier = document.getElementById("Supplier").value;
@@ -51,7 +51,7 @@ function create() {
 }
 
 function read() {
-    let output = "<table><tr><th>Company</th><th>Supplier</th><th>paymentMode</th><th>Currency</th><th>Bill Reference</th><th>Remarks</th><th>AdjustAmount</th><th>Netpayable</th><th>AdjustNote</th></tr>";
+   output = "<table><tr><th>Company</th><th>Supplier</th><th>paymentMode</th><th>Currency</th><th>Bill Reference</th><th>Remarks</th><th>AdjustAmount</th><th>Netpayable</th><th>AdjustNote</th></tr>";
 
     // loop through array and display employee data
     for (let i = 0; i < suppliers.length; i++) {
@@ -60,10 +60,52 @@ function read() {
 
     output += "</table>";
 
-    // display employee data
-   /* document.getElementById("output").innerHTML = output;*/
+    /* display employee data*/
+    document.getElementById("output").innerHTML = output;
 }
-let resetForm = () => {
+function update() {
+      let Company = document.getElementById("Company").value;
+      let Supplier = document.getElementById("Supplier").value;
+      let paymentMode = document.getElementById("paymentMode").value;
+      let Currency = document.getElementById("Currency").value;
+      let BillReference = document.getElementById("BillReference").value;
+      let Remarks = document.getElementById("Remarks").value;
+      let AdjustAmount = document.getElementById("AdjustAmount").value;
+      let Netpayable = document.getElementById("Netpayable").value;
+      let AdjustNote = document.getElementById("AdjustNote").value;
+ 
+
+   // loop through array and update employee data
+   for (let i = 0; i < suppliers.length; i++) {
+      if (suppliers[i].Company === Company) {
+         suppliers[i].Supplier = Supplier;
+         suppliers[i].paymentMode = paymentMode;
+         suppliers[i].Currency = Currency;
+         suppliers[i].BillReference = BillReference;
+         suppliers[i].Remarks = Remarks;
+         suppliers[i].AdjustAmount = AdjustAmount;
+         suppliers[i].Netpayable = Netpayable;
+         suppliers[i].AdjustNote = AdjustNote;
+
+            // display success message
+            document.getElementById("output").innerHTML = "<p>Suppliers Info updated successfully!</p>";
+
+            return; // exit loop
+         }
+      }
+      document.getElementById("output").innerHTML = "<p>Supplier not found!</p>";
+}
+function Delete () {
+   let Company = document.getElementById("Company").value;
+
+   // loop through array and delete employee
+   for (let i = 0; i < suppliers.length; i++) {
+      if (suppliers[i].name === Company) {
+         employees.splice(i, 1); // remove employee from
+      }
+   }
+}
+function resetForm() {
     Company.value = "";
     Supplier.value = "";
     paymentMode.value = "";
@@ -78,5 +120,5 @@ let resetForm = () => {
 (() => {
     data = JSON.parse(localStorage.getItem("suppliers")) || []
     console.log(suppliers);
-    read()();
+    read();
 })();

@@ -26,10 +26,17 @@
    top: 96px;
    right: 10px;
 }
+/*All Button show */
+/*.button-group {
+   position: absolute;
+   top: 70px;
+   left: 880px;
+   float: right;
+}*/
 .button-group {
    position: absolute;
    top: 70px;
-   left: 1030px;
+   left: 1090px;
    float: right;
 }
 
@@ -53,20 +60,20 @@
     cursor: pointer;
 }
 .maindrop {
-    width: 200px;
-    height: 45px;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    appearance: push-button;
-    -webkit-appearance: none;
-    color: black; /* change the font color */
-    background-color: white;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1.5 4.5 2.914 3.086 6 6.172 9.086 3.086 10.5 4.5z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 10px center;
-    cursor: pointer;
+   width: 237px;
+   height: 44px;
+   padding: 7px;
+   font-size: 16px;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+   appearance: push-button;
+   -webkit-appearance: none;
+   color: black; /* change the font color */
+   background-color: white;
+   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1.5 4.5 2.914 3.086 6 6.172 9.086 3.086 10.5 4.5z'/%3E%3C/svg%3E");
+   background-repeat: no-repeat;
+   background-position: right 10px center;
+   cursor: pointer;
 }
 input {
    width: 200px;
@@ -187,6 +194,22 @@ button[type="submit"] {
 }
 .container {
     text-align: right;
+}
+table {
+   border-collapse: collapse;
+   width: 100%;
+   max-width: 800px;
+   margin: auto;
+}
+
+th, td {
+   padding: 8px;
+   text-align: left;
+   border: 1px solid #ddd;
+}
+
+th {
+   background-color: #f2f2f2;
 }
 
 
