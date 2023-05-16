@@ -1,0 +1,107 @@
+﻿
+    .statistics {
+    margin-top: 25px;
+    color: white;
+}
+
+    .statistics .box {
+        height:190px;
+        -webkit-box-shadow: 0 1px 2.94px 0.06px rgba(0, 0, 0, 0.25);
+        box-shadow: 12px 12px 16px 0 rgba(0, 0, 0, 0.25), -8px -8px 12px 0 rgba(255, 255, 255, 0.3);
+        border: none;
+        margin-bottom: 30px;
+        -webkit-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+        overflow: hidden;
+    }
+
+        .statistics .box .dropdown-item {
+            color: white;
+        }
+
+            .statistics .box .dropdown-item:hover {
+                background: #162f4c;
+            }
+            .statistics .box .dropdown-item:visited {
+                background: #b200ff;
+            }
+
+/*.textile {
+    background: linear-gradient(45deg,#2ed8b6,#59e0c5);
+}
+
+.engineering {
+    background: linear-gradient(45deg,#4099ff,#73b4ff);
+}
+
+.agro {
+    background:linear-gradient(45deg,#767aa1,#989dd2);
+}
+
+.ravens {
+    background: linear-gradient(45deg,#FF5370,#ff869a);
+}*/
+    .textile {
+  background: linear-gradient(45deg, #037331, #0dd0a9);
+}
+.engineering {
+  background: linear-gradient(45deg, #162f4c, #0d73e8);
+}
+.agro {
+  background: linear-gradient(45deg, #380467, #042894);
+}
+.ravens {
+  background: linear-gradient(45deg, #94041c, #b70806);
+}
+
+/*.textile {
+    background: #767aa1;
+}
+
+.engineering {
+    background: linear-gradient(45deg,#4099ff,#73b4ff);
+}
+
+.agro {
+    background: #77b691;
+}
+
+.ravens {
+    background: #259094;
+}*/
+.statistics .box > i {
+    float: left;
+    color: #FFF;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 22px;
+}
+    .zoom {
+  transition: transform .2s;
+}
+
+.zoom:hover {
+  -ms-transform: scale(1.1); /* IE 9 */
+  -webkit-transform: scale(1.1); /* Safari 3-8 */
+  transform: scale(1.1); 
+}
+.statistics .box .info {
+    float: left;
+    width: auto;
+    margin-left: 10px;
+}
+
+    .statistics .box .info h3 {
+        margin: 5px 0 5px;
+        display: inline-block;
+    }
+
+    .statistics .box .info p {
+        color: #BBB;
+    }
+    .linewhite {
+    padding: 10px;
+    border-bottom: 1px solid white;
+}

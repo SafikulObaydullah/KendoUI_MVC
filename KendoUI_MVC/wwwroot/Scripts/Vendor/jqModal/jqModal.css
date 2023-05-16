@@ -1,0 +1,158 @@
+﻿/* jqModal base Styling courtesy of;
+	Brice Burgess <bhb@iceburg.net> */
+
+/* The Window's CSS z-index value is respected (takes priority). If none is supplied,
+	the Window's z-index value will be set to 3000 by default (via jqModal.js). */
+	
+#jqmWindow {
+    display: none;
+    
+    position: fixed;
+    top: 8%;
+    left: 30%;
+    
+    margin-left: -300px;
+    width: 340px;
+    
+    background-color: #EEE;
+    color: #333;
+    border: 1px solid black;
+    padding: 12px;
+}
+
+#JobDialog {
+    display: none;
+    
+    position: fixed;
+    top: 17%;
+    left: 40%;
+    
+    margin-left: -300px;
+    width: 900px;
+    
+    background-color: #EEE;
+    color: #333;
+    border: 1px solid black;
+    padding: 12px;
+}
+
+#JobEntryDataModel {
+    display: none;
+    
+    position: fixed;
+    top: 8%;
+    left: 55%;
+    
+    margin-left: -300px;
+    width: 750px;
+    
+    background-color: #EEE;
+    color: #333;
+    border: 1px solid black;
+    padding: 12px;
+}
+#HelpMenu {
+    display: none;
+    
+    position: fixed;
+    top: 8%;
+    left: 55%;
+    
+    margin-left: -300px;
+    width: 750px;
+    
+    background-color: #EEE;
+    color: #333;
+    border: 1px solid black;
+    padding: 12px;
+}
+
+ #jqmWindowContext {
+    display: none;
+    
+    position: fixed;
+    /*top: 18%;
+    left: 55%;*/
+        left: 589.938px;
+    top: 183.531px;
+    margin-left: -300px;
+    width: 750px;
+    
+    background-color: #EEE;
+    color: #333;
+    border: 1px solid black;
+    padding: 12px;
+    height:400px;
+   overflow-y: hidden; 
+    overflow-x: hidden;
+}
+  #jqmWindowContext1 {
+    display: none;
+    
+    position: fixed;
+    /*top: 18%;
+    left: 55%;*/
+        left: 589.938px;
+    top: 183.531px;
+    margin-left: -300px;
+    width: 750px;
+    
+    background-color: #EEE;
+    color: #333;
+    border: 1px solid black;
+    padding: 12px;
+    height:400px;
+   overflow-y: hidden; 
+    overflow-x: hidden;
+}
+  #jqmWindowContextApproval {
+    display: none;
+    
+    position: fixed;
+    /*top: 18%;
+    left: 55%;*/
+        left: 589.938px;
+    top: 183.531px;
+    margin-left: -300px;
+    width: 850px;
+    
+    background-color: #EEE;
+    color: #333;
+    border: 1px solid black;
+    padding: 12px;
+    height:200px;
+   overflow-y: hidden; 
+    overflow-x: hidden;
+}
+  #ReportModal {
+    display: none;
+    
+    position: fixed;
+    top: 8%;
+    left: 55%;
+    
+    margin-left: -300px;
+    width: 350px;
+    
+    background-color: #EEE;
+    color: #333;
+    border: 1px solid black;
+    padding: 12px;
+}
+ 
+
+/*.jqmOverlay { background-color: #000; }*/
+
+/* Background iframe styling for IE6. Prevents ActiveX bleed-through (<select> form elements, etc.) */
+* iframe.jqm {position:absolute;top:0;left:0;z-index:-1;
+	width: expression(this.parentNode.offsetWidth+'px');
+	height: expression(this.parentNode.offsetHeight+'px');
+}
+
+/* Fixed posistioning emulation for IE6
+     Star selector used to hide definition from browsers other than IE6
+     For valid CSS, use a conditional include instead */
+* html .jqmWindow {
+     position: absolute;
+     top: expression((document.documentElement.scrollTop || document.body.scrollTop) + Math.round(17 * (document.documentElement.offsetHeight || document.body.clientHeight) / 100) + 'px');
+}

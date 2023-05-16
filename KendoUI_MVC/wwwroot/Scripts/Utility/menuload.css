@@ -1,0 +1,102 @@
+﻿    .menu_mIcon {
+        width: 15px;
+        margin: 35px;
+        /*padding: 5px;*/
+        float: left;
+        cursor: pointer;
+        text-align: center;
+        font-size: 10px;
+        font-weight: bold;
+    }
+
+    .menu_moduleimg {
+        opacity: 0.5;
+        cursor: pointer;
+    }
+
+        .menu_moduleimg:hover {
+            opacity: 1;
+        }
+
+    .menu_Approval {
+        -webkit-border-top-left-radius: 10px;
+        -webkit-border-top-right-radius: 10px;
+        -moz-border-radius-topleft: 10px;
+        -moz-border-radius-topright: 10px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        color: #F00;
+        font-family: Verdana;
+        font-size: 14px;
+        width: 205px;
+        height: 70px;
+        border: 1px solid #999;
+        position: fixed;
+        left: 15px;
+        bottom: 0;
+        line-height: 5em;
+        text-align: center;
+        background-color: #ffffff;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+        filter: alpha(opacity=50);
+        -moz-opacity: 0.5;
+        -khtml-opacity: 0.5;
+        opacity: 0.5;
+    }
+
+    .menu_moduleContainer {
+        position: absolute;
+        background-color: #ffffff;
+        border: 1px solid;
+        left: 0px;
+        z-index: 9999;
+    }
+
+    .menu_container {
+        float: none;
+        clear: both;
+        width: 265px;
+        padding: 0px;
+        -webkit-box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+        -moz-box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+        box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+        border: solid 0px rgba(0, 0, 0, 0.3);
+        background-color: #FDFDFD;
+        outline: 0;
+        background-clip: content-box;
+        -moz-background-clip: content;
+        -webkit-background-clip: content;
+        position: relative;
+        top: 10px;
+        left: 2px;
+    }
+
+        .menu_container:after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: -20px;
+            left: 5px;
+            width: 0;
+            height: 0;
+            border-color: transparent transparent #FFF transparent;
+            border-style: solid;
+            border-width: 10px;
+        }
+
+        .menu_container:before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: -21px;
+            left: 5px;
+            width: 0;
+            height: 0;
+            border-color: transparent transparent rgba(0, 0, 0, 0.3) transparent;
+            border-style: solid;
+            border-width: 10px;
+        }
+
+    .menu_clear {
+        clear: both;
+    }

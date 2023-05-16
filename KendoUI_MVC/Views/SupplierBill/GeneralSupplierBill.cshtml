@@ -1,0 +1,252 @@
+﻿@{
+    ViewBag.Title = "General Bill | Entry";
+    Layout = "~/Views/Shared/_MasterLayoutK.cshtml";
+}
+
+<script src="~/assets/lib/commonui/js/main/common.js"></script>
+<script src="~/scripts/accountjs/approval.js"></script>
+<script src="~/Assets/lib/CommonUI/js/SupplierBill/Generalsupplierbill.js?version=@ViewBag.JsVersion"></script>
+
+<style>
+    .k-state-selected, .k-state-selected:link, .k-state-selected:visited {
+        color: #fff;
+        background-color: darkcyan;
+        border-color: #7ea700;
+    }
+
+    .k-operator-hidden {
+        width: 100% !important;
+    }
+
+    .k-grid tr:hover {
+        color: #fff;
+        background-color: #55c5c5;
+    }
+
+    .main-menu:before {
+        left: 170px;
+        position: absolute;
+        display: block;
+        content: "";
+        width: 1360px;
+        height: 39px;
+        top: -3px;
+        background: #dce9ec;
+        -webkit-transform: skew( 37deg );
+    }
+
+    .k-grid td > span {
+        white-space: nowrap;
+    }
+
+    @@media (min-width: 768px) {
+        .col-md-1 {
+            -ms-flex: 0 0 7%;
+            flex: 0 0 7%;
+            max-width: 8.333333%;
+        }
+
+        .col-md-2 {
+            -ms-flex: 0 0 16.666667%;
+            flex: 0 0 14%;
+            max-width: 16.666667%;
+        }
+
+
+        #ex3 .row > .col-md-2 {
+            -ms-flex: 0 0 16.666667%;
+            flex: 0 0 16.666667%;
+            max-width: 16.666667%;
+        }
+
+        .col-md-3 {
+            -ms-flex: 0 0 25%;
+            flex: 0 0 23%;
+            max-width: 25%;
+        }
+    }
+
+    .k-dropzone {
+        padding: 0;
+    }
+
+    .k-upload-files {
+        display: none;
+    }
+
+    .k-expander-content {
+        padding: 5px 16px 16px 16px;
+    }
+
+    #tblPdInfo table {
+        min-width: 100%;
+    }
+
+    .k-dialog .k-window-titlebar .k-dialog-title {
+        visibility: hidden;
+    }
+
+    .k-input, .k-multiselect-wrap, .k-textbox, .k-textbox > input {
+        color: black !important;
+    }
+
+    button.k-button {
+        background-color: aquamarine;
+    }
+
+    .k-expander-header {
+        padding: 3px 16px;
+        background: linear-gradient(to bottom, #005365 0%, #2d97af 100%);
+        color: white;
+    }
+
+    .k-expander-title {
+        color: white;
+    }
+
+    .k-grid td {
+        font-size: 12px;
+    }
+
+    @@media only screen and (max-width: 600px) {
+        #btngroup {
+            font-size: 10px;
+            position: fixed;
+            left: 1%;
+            display: block;
+            background: #f8f9fc;
+            margin-top: 30px;
+        }
+
+        .hidestatus {
+            display: none;
+        }
+
+        #main-body-el {
+            margin-top: 25px;
+        }
+    }
+
+    .pointer {
+        filter: blur(150px);
+        -webkit-filter: blur(150px);
+        pointer-events: none;
+    }
+
+    .k-window-titlebar.k-dialog-titlebar {
+        display: none;
+    }
+
+    #ex3 > div:nth-child(2) > div:nth-child(3) > span:nth-child(1) {
+        font-size: 13px;
+    }
+
+    div#ex3 .row > * {
+        box-sizing: border-box;
+    }
+
+    .k-widget.k-window.k-dialog.k-confirm button {
+        transition: color 200ms;
+    }
+</style>
+
+<div style="padding-top: 5px; margin-left:-14px; position: fixed; z-index: 10000; background:#a5d70c;height:40px;width:100%">
+    <div class="main-menu" style="position: fixed;left: 7px;margin-top: -3px;padding:3px;">
+        <span style="color: white;padding: 5px 5px 5px 0; font-size:14px; font-weight:bold; margin-right:55px">General Bill Entry</span>
+        <span style="color: black;padding: 5px 5px 5px 5px; font-size:14px; margin-top:-3px;position:sticky"><span>Bill Id </span><input type="number" min="0" style="background-color: white;width:20% " class="textbox" placeholder="Search Bill ID" id="billId" /> </span>
+
+
+        <span class="hidestatus pointer" style="color: #f8f9fc;">___________</span><span onclick="sendToLocation()" style="display:none; position:fixed;font-size: 13px;margin-top:-6px;width:45%" id="billStatus">Successfully Approved by Audit</span>
+        <span style="color: black;padding: 5px 5px 5px 5px; font-size:14px; font-weight:bold; margin-top:-4px;display:none;"> <input style="background-color: white; " class="textbox" placeholder="Write Action Note" id="txtActionNote" /> </span>
+
+    </div>
+
+    <div style="position: fixed;right: 8%;display:block;background: #f8f9fc;" class="select-period k-widget k-button-group"
+         data-role="buttongroup" role="group" tabindex="0">
+        <span id="btnDelete" class="danger" onclick="deleteBill()" style="display:none">
+            Delete
+        </span>
+        @*onclick="SendToAuditConfirmation()" btnSendtoAudit*@
+        <span id="btnApproval" onclick="SendToApproval()" style="display:none" class="warning">
+            Send for Approval
+        </span>
+        <span id="btnSaves" class="success" onclick="SaveBill()">
+            Save
+        </span>
+        <span id="btnClear" class="danger" onclick="clearAll()">
+            Clear
+        </span>
+
+
+
+    </div>
+    <div style="position: fixed; right: 1%; display: block; background: #f8f9fc; margin-top: -5px;">
+
+        <ul id="menuReport">
+            <li>
+                Report
+                <ul>
+                    <li onclick="ViewApprovalReport()">Bill Details</li>
+                </ul>
+            </li>
+        </ul>
+
+
+    </div>
+
+
+</div>
+<br>
+<div class="body-elements" style="font-size:12px;">
+    <span id="spnBillId" style="display:none">0</span>
+
+    <span id="spanTransactionFormId" style="display:none">5</span>
+    <span id="spanCompanyCode" style="display: none"></span>
+    <div id="main-body-el" style="padding-top: 20px; position: sticky;z-index: 1000;">
+        <div id="ex3">
+            <div class="row">
+                <div class="col-md-3"><span style="color:red;">*</span><span>Company</span><input id="ddlCompany" class="Kcombobox" style="width: 100%;" /></div>
+                <div class="col-md-3"><span style="color:red;">*</span><span>Supplier</span><input id="ddlSupplier" class="Kcombobox" style="width: 100%;" /></div>
+                <div class="col-md-2"><span style="color:red;">*</span><span>Payment Mode</span><input style="width: 100%;" id="ddlPaymentMode" /></div>
+                <div class="col-md-2"><span style="color:red;">*</span><span>Currency</span><input id="ddlCurrency" class="Kcombobox" style="width: 100%;" /></div>
+                <div class="col-md-2"><span style="color:red;">*</span><span>Bill Ref</span><input id="txtBillRef" class="tbltextbox" style="width: 100%;" /></div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-3"><span>Remarks</span><input id="txtRemarks" class="tbltextbox" style="width: 100%;" /></div>
+                <div class="col-md-3"><span>Adjust Amount</span><input type="number" min="0" id="txtAdjustAmount" class="tbltextbox" onblur="calculateNetPayable()" style="width: 100%;" /></div>
+                @*<div class="col-md-2"><span>Vat</span><input type="number" min="0" id="txtVat" class="tbltextbox" style="width: 100%;" onblur="calculateNetPayable()" /></div>
+                <div class="col-md-2"><span>Tax</span><input type="number" min="0" id="txtTax" class="tbltextbox" style="width: 100%;" onblur="calculateNetPayable()" /></div>*@
+                <div class="col-md-2"><span>Net payable</span><input type="number" min="0" id="txtNetPayable" readonly="readonly" class="tbltextbox" style="width: 100%; color:black; background:rgb(231, 231, 231)" data-role="textbox" aria-disabled="false" autocomplete="off"></div>
+
+                <div class="col-md-4">
+                    <span>Adjust Note</span><input id="txtAdjustNote" class="tbltextbox" style="width: 100%;" />
+                    <span id="spnApprovalStatusDoc" style="display:none;"></span>
+                </div>
+
+
+            </div>
+
+        </div>
+        <div id="ex2">
+            <div class="row">
+                <div class="col-md-5"><span>Product</span><input id="txtProductSearch" class="Kcombobox" style="width: 100%;" /></div>
+                <div class="col-md-1"><button class="btn btn-success" id="btnAdd" name="Add" onclick="addProduct()" style="height: 15px; text-align: center; padding-top: 0px; padding-bottom: 10px; margin-top: 19px;"><b>Add</b></button></div>
+            </div>
+
+            <br />
+            <div id="tblProductInfo"></div>
+        </div>
+
+        <div id="ex4">
+            @*///// Need To Add Documents*@
+            <div id="divDoc">
+                @Html.Partial("_DocumentKendo")
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

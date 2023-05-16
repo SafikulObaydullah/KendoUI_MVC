@@ -1,0 +1,489 @@
+﻿@using Authentication.Identity.Extensions;   @*Get Login Id Refference*@
+@using Microsoft.AspNet.Identity
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link rel="shortcut icon" href="../Assets/lib/kendoUI/images/Essentials/dird_icon.png">
+    @*CSS*@
+    @*@Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/jquery")*@
+    <link href="~/Assets/lib/CommonUI/css/preloader.css" rel="stylesheet" />
+
+    <link href="~/Assets/lib/kendoUI/css/bootstrap.min.css" rel="stylesheet" />
+
+    <link href="~/Assets/lib/kendoUI/css/kendo.common.min.css" rel="stylesheet" />
+
+    <link href="~/Assets/lib/kendoUI/css/kendo.metro.min.css" rel="stylesheet" />
+
+    <link href="~/Assets/lib/kendoUI/css/site.css" rel="stylesheet" />
+
+    <script src="~/Assets/lib/kendoUI/js/jquery-3.5.1.min.js"></script>
+
+    <script src="~/Assets/lib/kendoUI/js/kendo.all.min.js"></script>
+
+    <script src="~/Assets/lib/kendoUI/js/jszip.min.js"></script>
+
+    <script src="~/Scripts/Vendor/jquery.blockUI.js"></script>
+    <script src="~/Scripts/CommercialJs/test.js"></script>
+
+
+    <script src="~/Assets/lib/kendoUI/js/MenuLoad.js"></script>
+    <script src="~/Assets/lib/kendoUI/js/main.js"></script>
+
+    <script src="~/Assets/lib/kendoUI/js/Common.js"></script>
+
+
+    <script src="~/Assets/lib/kendoUI/js/Underscore-min.js"></script>
+   
+    <script src="~/Assets/lib/kendoUI/js/bootstrap.min.js"></script>
+    <script src="~/Assets/lib/CommonUI/js/vendors/moment.min.js"></script>
+
+</head>
+
+<style>
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    input:-webkit-autofill:active {
+        -webkit-box-shadow: 0 0 0 30px white inset !important;
+    }
+    .blur{
+        filter: blur(150px);
+        -webkit-filter: blur(150px);
+        pointer-events: none;
+        }
+    .secondary {
+        color: #fff;
+        background-color: #6c757d;
+        border-color: #6c757d;
+    }
+
+        .secondary:hover {
+            background-color: #9ba6af;
+        }
+        .success {
+        color: #fff;
+        background-color: #7ea700;
+        border-color: #7ea700;
+    }
+
+        .success:hover {
+            background-color: #7ea700;
+        }
+    .danger {
+        color: #fff;
+        background-color: #dc3545;
+        border-color: #dc3545;
+    }
+
+        .danger:hover {
+            background-color: #fa394c;
+        }
+
+    .warning {
+        color: #212529;
+        background-color: #ffc107;
+        border-color: #ffc107;
+    }
+
+        .warning:hover {
+            background-color: #ffdc73;
+        }
+
+    .info {
+        color: #fff;
+        background-color: #17a2b8;
+        border-color: #17a2b8;
+    }
+
+        .info:hover {
+            background-color: #4fcbdf;
+        }
+    .modal-content {
+        border-radius: 0
+    }
+    th.k-header {
+        background: aliceblue;
+    }
+    ul.nav-menu, 
+    #menuactive,
+    #menuactive--mobile{
+        border: 0;
+    }
+    #menuactive--mobile{
+        display: none;
+    }
+    @@media screen and (max-width: 768px){
+        
+        #menuactive--mobile{
+            display: block;
+        }
+        #menuactive{
+            display: none;
+        }
+    }
+    ul.nav-menu > li{
+        background: linear-gradient(to bottom, #51bbd2 0, #2d97af 100%); 
+        color: white;
+    }
+    .main-menu:before {
+        left: 120px;
+        position: absolute;
+        display: block;
+        content: "";
+        width: 1360px;
+        height: 39px;
+        top: -3px;
+        background: #dce9ec;
+        -webkit-transform: skew( 37deg );
+    }
+
+    @@media (min-width: 768px) {
+        .col-md-1 {
+            -ms-flex: 0 0 7%;
+            flex: 0 0 7%;
+            max-width: 8.333333%;
+        }
+
+        .col-md-2 {
+            -ms-flex: 0 0 16.666667%;
+            flex: 0 0 14%;
+            max-width: 16.666667%;
+        }
+
+        .col-md-3 {
+            -ms-flex: 0 0 25%;
+            flex: 0 0 23%;
+            max-width: 25%;
+        }
+    }
+
+    @@media (min-width: 1200px) {
+        .modal-xl {
+            max-width: 1355px;
+        }
+    }
+
+    .expandedStyle {
+        font-size: 12px;
+        font-weight: bold;
+        font-family: monospace;
+    }
+
+    .k-dropzone {
+        padding: 0;
+    }
+
+    .k-upload-files {
+        display: none;
+    }
+
+    .k-expander-content {
+        padding: 5px 16px 16px 16px;
+    }
+
+    /*table {
+        min-width: 100%;
+        font-size: 11px;
+    }*/
+
+    .k-dialog .k-window-titlebar .k-dialog-title {
+        visibility: hidden;
+    }
+
+
+
+    .k-expander-header {
+        padding: 3px 16px;
+        background: linear-gradient(to bottom, #005365 0%, #2d97af 100%);
+        color: white;
+    }
+
+    .k-expander-title {
+        color: white;
+    }
+
+    .k-grid td {
+        font-size: 11px;
+    }
+
+    .k-grid .k-grid-search {
+        margin-left: auto;
+        margin-right: 0;
+    }
+
+    .k-grid-header th.k-header > .k-link {
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+    .k-grid .k-grid-search {
+        margin-left: auto;
+        margin-right: 0;
+    }
+
+    .k-grid-header th.k-header > .k-link {
+        font-size: 13px;
+        font-weight: bold;
+    }
+
+    .k-grid .k-grid-search {
+        margin-left: auto;
+        margin-right: 0;
+    }
+
+    .k-grid-header th.k-header > .k-link {
+        font-size: 13px;
+        font-weight: bold;
+    }
+    /*    ::-webkit-scrollbar {
+        width: 12px;
+    }*/
+    /*    ::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 10px #51bbd2;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        -webkit-box-shadow: inset 0 0 10px #2d97af;
+    }*/
+    .modal-header {
+        padding: 0.2rem 1rem;
+    }
+
+
+    #company-config-modal {
+    }
+
+        #company-config-modal .modal-dialog {
+            width: max-content;
+        }
+
+            #company-config-modal .modal-dialog .modal-header {
+                padding: 20px 10px;
+                font-size: 14px;
+                font-weight: bold;
+            }
+
+            #company-config-modal .modal-dialog .modal-body {
+                padding: 10px 100px 10px 80px;
+            }
+
+                #company-config-modal .modal-dialog .modal-body label span {
+                    margin-left: 10px;
+                    font-size: 14px;
+                }
+
+    .query {
+        font-size: 12px;
+    }
+
+        .query input:not(.query .kendo-text) {
+            margin-left: 15px !important;
+        }
+
+        .query label {
+            margin-left: 0 !important;
+        }
+
+    .k-grid tbody button.k-button {
+        min-width: 50px !important;
+    }
+
+    .toR {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .margin5 {
+        margin: 5px !important;
+    }
+
+    #AmendmentWithExistBBLCConfirmationModal table {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .row.trash {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+        .row.trash > div {
+            box-sizing: border-box;
+            width: 50% !important;
+        }
+
+    .text, .date {
+        width: 100% !important;
+    }
+
+    .full {
+        width: 100%;
+    }
+
+    .r-flex-right {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .grid-button {
+        padding: 7px;
+        font-size: 20px;
+        margin: 2px;
+        border: none;
+        color: black;
+        font-weight: bold;
+    }
+
+    .grid-button-grn {
+        background: #7ea700;
+    }
+
+    .grid-button-ytw {
+        background: #d8e100;
+    }
+
+    .grid-button:hover {
+        opacity: .5;
+        cursor: pointer;
+    }
+
+    .grid-a {
+        color: blueviolet;
+    }
+
+    .grid-button-text {
+        font-weight: normal;
+        font-size: 11px;
+        padding: 5px 12px;
+    }
+</style>
+<body style="background:#f8f9fc">
+    <!--CSS Spinner-->
+    <div class="spinner-wrapper">
+        <div class="spinner">
+        </div>
+    </div>
+    <span style="display:none;" id="spnEmpID">@ViewBag.EmployeeId</span>
+    <div id="example">
+        <div id="megaStore" class="k-content" style="position: fixed; width: 100%; z-index: 100000; box-shadow: 5px 3px 5px #95bdc6; font-size: 12px;">
+            <ul id="menu" style="background: linear-gradient(to bottom, #51bbd2 0%, #2d97af 100%); color: white;">
+                <li>
+                    <span id="goto-home"> <img alt="icon" class="k-image" style="margin: -5px 4px 0 -4px;" src="~/Assets/lib/kendoUI/images/Essentials/dird_icon.png">Accounts  </span>
+
+                  
+                </li>
+                <li aria-haspopup="true" aria-expanded="false" class="k-item k-menu-item k-state-default k-first" role="menuitem" style="z-index: auto;" id="menuactive">
+                    
+
+                </li>
+                <li aria-haspopup="true" aria-expanded="false" class="k-item k-menu-item k-state-default k-first" role="menuitem" style="z-index: auto;" id="menuactive--mobile">
+
+
+                </li>
+                <li style="float:right;" id="user">
+                    <span>@User.Identity.GetEmployeeName() (@User.Identity.GetEmployeeId())</span>
+                   
+                    <ul>
+                        <li style="font-size:13px;" id="windowChangePassword">
+                           Change Password
+                        </li>
+                        <li>
+                            @using (Html.BeginForm("LogOff", "Home", FormMethod.Post, new { id = "logoutForm" }))
+                            {
+                                <a href="javascript:document.getElementById('logoutForm').submit()" id="btnLogoff"><span  style="color:#787878;"> Logout</span></a>
+                            }
+
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+
+    </div>
+
+
+    <div style="display: none; overflow:hidden;" id="windowChangePassword">
+
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-4">
+                <span>Old Password</span>    <input type="password" id="txtOldPassword" class="textbox">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1"></div>
+
+            <div class="col-md-4">
+                <span>New Password</span>    <input type="password" id="txtNewPassword" class="textbox">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1"></div>
+
+            <div class="col-md-4">
+                <span>Confirm Password</span>    <input type="password" id="txtConfirmPassword" class="textbox">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1"></div>
+
+            <div class="col-md-1"><button onclick="btnChangePassword()" style="margin-top:22px;margin-left: 65px;" id="btnchangePass" class="k-primary primaryTextButton">Change</button></div>
+        </div>
+
+    </div>
+
+    <span id="popupNotification"></span>
+    <div style="display:none; text-align:center; font-size:17px;font-weight:bold; color:#7a9f0b" id="Loadwindow"></div>
+    <div class="body-elements" style="padding-bottom: 30px; position: sticky;z-index: 1000;"></div>
+    <div id="body" class="container-fluid body-content">
+        @RenderBody()
+        <hr />
+        <footer style="position:fixed;bottom:0;right:1%;">
+            <p style="font-size:14px;">&copy;  Developed By <a href="https://www.ravensystemsltd.com/" target="_blank" style="text-decoration:none;color:#49ead3; font-weight:bold">Raven Systems Ltd.</a></p>
+        </footer>
+    </div>
+
+    <script>
+        $("#user.k-animation-container").css("right", "0");
+        
+        $(document).ready(function () {
+            //Preloader
+            preloaderFadeOutTime = 500;
+            function hidePreloader() {
+                var preloader = $('.spinner-wrapper');
+                preloader.fadeOut(preloaderFadeOutTime);
+            }
+            
+            navMenu(renderMenu, false);
+            navMenu(renderMobileMenu, true);
+
+            // keep the following function below of all code
+            hidePreloader();
+        });
+
+        function renderMenu(menuEl) {
+            document.querySelector('#menuactive').append(menuEl);
+            $(".nav-menu").kendoMenu();
+        }
+
+        function renderMobileMenu(menuEl) {
+            document.querySelector('#menuactive--mobile').append(menuEl);
+            $(".nav-menu").kendoMenu();
+        }
+
+       
+
+    </script>
+</body>
+
+
+</html>

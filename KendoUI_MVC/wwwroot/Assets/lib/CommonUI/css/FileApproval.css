@@ -1,0 +1,175 @@
+﻿
+.k-button:hover {
+    -ms-transform: scale(1.1); /* IE 9 */
+    -webkit-transform: scale(1.1); /* Safari 3-8 */
+    transform: scale(1.1);
+}
+
+.k-toolbar {
+    background: antiquewhite;
+}
+
+.modal-backdrop {
+    z-index: 999;
+}
+
+.toast-warning {
+    background: #ffcb00
+}
+
+.toast-success {
+    background: #44d800
+}
+
+.toast-error {
+    background: #ff0000
+}
+
+.toast-message {
+    color: black;
+}
+
+#FileUpload {
+    margin-top: 2px;
+}
+
+iframe {
+    width: 100%;
+    height: 800px;
+}
+
+/* Styles */
+.red {
+    background: #F2555D;
+    color: #FFF;
+}
+
+.blue {
+    background: #0071BC;
+    color: #FFF;
+}
+
+.green {
+    background: #5DB833;
+    color: #FFF
+}
+
+
+
+.expandedStyle {
+    font-size: 12px;
+    font-weight: bold;
+    font-family: monospace;
+}
+
+.k-dropzone {
+    padding: 0;
+}
+
+.k-upload-files {
+    display: none;
+}
+
+.k-expander-content {
+    padding: 5px 16px 16px 16px;
+}
+
+table {
+    min-width: 100%;
+    font-size: 12px;
+}
+
+.k-dialog .k-window-titlebar .k-dialog-title {
+    visibility: hidden;
+}
+
+
+
+.k-expander-header {
+    padding: 3px 16px;
+    background: linear-gradient(to bottom, #51bbd2 0%, #2d97af 100%);
+    color: white;
+}
+
+.k-expander-title {
+    color: white;
+}
+
+.k-grid td {
+    font-size: 12px;
+}
+/*    ::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 10px #808080;
+}*/
+
+.modal-header {
+    padding: 0.2rem 1rem;
+}
+
+.k-grid .k-grid-search {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.k-grid-header th.k-header > .k-link {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+@media (min-width: 992px) {
+    .modal-lg, .modal-xl {
+        max-width: 1050px;
+    }
+}
+
+
+.main-menu:before {
+    left: 188px;
+    position: absolute;
+    display: block;
+    content: "";
+    width: 1360px;
+    height: 32px;
+    top: -3px;
+    background: linear-gradient(to bottom, #51bbd2 0%, #2d97af 100%);
+    -webkit-transform: skew( 37deg );
+}
+
+.ReportBorderL {
+    border-style: none;
+    border-color: inherit;
+    border-width: 0;
+    background: #FFF;
+    width: 11in;
+    /*// min-height:8.5in;*/
+    padding: 15px;
+    box-shadow: 2px 2px 9px 1px rgba(119, 119, 119, 0.61);
+    -moz-box-shadow: 2px 2px 9px 1px rgba(119, 119, 119, 0.61);
+    -webkit-box-shadow: -2px -1px 15px 2px rgb(119 119 119 / 61%);
+    height: auto;
+}
+
+@media only screen and (max-width: 600px) {
+    #noteEditor {
+        margin-left: 0;
+    }
+
+    #notifyBTN {
+        margin-left: -30px;
+        top: 20px;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    #noteEditor {
+        margin-left: 100px;
+    }
+
+    #notifyBTN {
+        margin-left: 174px;
+    }
+}

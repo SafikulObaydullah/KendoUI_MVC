@@ -8,5 +8,9 @@ namespace KendoUI_MVC.Controllers
         {
             return View();
         }
+        public IActionResult SupplierInfo()
+        {
+            return View();
+        }
     }
 }

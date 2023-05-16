@@ -1,0 +1,218 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+<div id="example">
+    <div id="megaStore" class="k-content" style="position: fixed; width: 100%; z-index: 100000; box-shadow: 5px 3px 5px #95bdc6; font-size: 12px;">
+        <ul id="menu" style="background: linear-gradient(to bottom, #51bbd2 0%, #2d97af 100%); color: white;" data-role="menu" class="k-widget k-reset k-header k-menu k-menu-horizontal" tabindex="0" role="menubar" aria-activedescendant="menu_mn_active">
+            <li class="k-item k-menu-item k-state-default k-first" role="menuitem" id="menu_mn_active">
+                <span class="k-link k-menu-link"><span id="goto-home"> <img alt="icon" class="k-image" style="margin: -5px 4px 0 -4px;" src="./images/dird_icon.png">Accounts  </span></span>
+            </li>
+            <li aria-haspopup="true" aria-expanded="false" class="k-item k-menu-item k-state-default" role="menuitem" style="z-index: auto;" id="menuactive">
+
+
+                <ul class="nav-menu k-widget k-reset k-header k-menu k-menu-horizontal" data-role="menu" role="menubar" tabindex="0"></ul>
+            </li>
+            <li aria-haspopup="true" aria-expanded="false" class="k-item k-menu-item k-state-default" role="menuitem" style="z-index: auto;" id="menuactive--mobile">
+
+
+                <ul class="nav-menu k-widget k-reset k-header k-menu k-menu-horizontal" data-role="menu" tabindex="0" role="menubar"><li class="k-item k-menu-item k-state-default k-first k-last" role="menuitem"><span class="k-link k-menu-link">@*MENU*@</span></li></ul>
+            </li>
+            <li style="float: right; z-index: auto;" id="user" aria-haspopup="true" class="k-item k-menu-item k-state-default k-last" role="menuitem">
+                <span class="k-link k-menu-link"><span>@*Md.Obaydullah (164254)*@</span><span class="k-menu-expand-arrow k-icon k-i-arrow-60-down"></span></span>
+
+
+                <div class="k-animation-container" style="width: 138.141px; height: 51.9531px; overflow: hidden; display: none; position: absolute; z-index: 10002; top: 27.7969px; left: 0px;" aria-hidden="true">
+                    <ul class="k-group k-menu-group k-popup k-reset" role="menu" data-role="popup" style="max-height: 374px; overflow: auto; position: absolute; font-size: 12px; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot; Arial &quot;Noto Sans&quot; &quot;Liberation Sans&quot;, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot; font-stretch: 100%; font-style: normal; font-weight: 400; line-height: normal; display: none; transform: translateY(-51.9531px);" aria-hidden="true">
+                        <li style="font-size:13px;" id="windowChangePassword" class="k-item k-menu-item k-state-default k-first" role="menuitem">
+                            @* <span class="k-link k-menu-link">
+                            Change Password
+                            </span>*@
+                        </li>
+                        <li class="k-item k-menu-item k-state-default k-last" role="menuitem">
+                            <span class="k-link k-menu-link">
+                                <form action="/AccountingSystem/Home/LogOff" id="logoutForm" method="post">
+                                    <a href="javascript:document.getElementById('logoutForm').submit()" id="btnLogoff"><span style="color:#787878;"> Logout</span></a>
+                                </form>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+
+</div>
+<br />
+<br />
+@*<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Logo</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Services</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a>
+            </li>
+        </ul>
+    </div>
+</nav>*@
+
+ <style>
+    body {
+        line-height: 1.2;
+    }
+        *{box-sizing: border-box;}
+
+        .menu{
+            background-color: cadetblue;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        /*.menu .general {
+        background-color: cadetblue;
+        display: flex;
+        justify-content: flex-start;
+    }*/
+
+   /* @@media screen and (max-width: 600px) {
+        .menu .general {
+            background-color: cadetblue;
+            display: flex;
+            justify-content: flex-start;
+        }
+    }*/
+
+        .menu a{
+            text-decoration: none;
+            padding: 20px;
+            color: white;
+        }
+
+        .menu a:hover{
+            /*background-color: gray;*/
+        }
+
+        @@media screen and (max-width: 600px){
+            .menu{
+                flex-direction: column;
+                padding: 10px;
+                
+            }
+
+            .menu .general {
+                background-color: cadetblue;
+                display: flex;
+                justify-content: flex-start;
+            }
+            .menu a {
+                background-color: indigo;
+                margin: 10px 0;
+                text-align: center;
+                border-radius: 10px;
+            }
+        }
+
+    luid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+        width: 100%;
+        padding-right: var(--bs-gutter-x,-0.25rem);
+        padding-left: var(--bs-gutter-x,-0.25rem);
+        /* margin-right: auto; */
+        /* margin-left: auto; */
+    }
+  /*  .container {
+        width: 100%;
+        height: 200px;
+        background-color: #f2f2f2;
+    }*/
+
+    .container {
+        text-align: right;
+        padding: 20px;
+    }
+    .block {
+        /*width: 100px;
+        height: 100px;
+        background-color: #4CAF50;*/
+        float: left;
+    }
+
+    </style>
+<div class="menu">
+    <div class="container">
+        <div class="block">
+            <a href="#">General Bill Entry</a>
+            <a href="#">Bill Id</a>
+            <a href="#"><input type="search" /></a>
+        </div>
+    </div>
+    <a href="#">Save</a>
+    <a href="#">Clear</a>
+    <a href="#">Report</a>
+</div>
+<br />
+@*Add Collapse ========================================================================================================== *@
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    .gridwrapper {
+        overflow: auto;
+        position: relative;
+        height: 250px;
+    }
+
+    .gridcontent {
+        width: 8.33%;
+        margin: 0;
+        border-right: 1px solid grey;
+        height: 100%;
+        float: left;
+        background-color: #84c754;
+        background-color: #f1f1f1;
+    }
+</style>
+<div style="position:absolute;opacity:0.9;width:auto;left:8px;right:10px;">
+    <div>
+        <div class="gridwrapper" style="height:90px;">
+            <div class="gridcontent" style="width:100%;background:#9933cc;border-right-color:transparent;">
+            </div>
+        </div>
+        <div class="gridwrapper" style="height:230px;">
+            <div class="gridcontent" style="background-color:#ffffff;border:none;width:25%;padding-top:15px;">
+                <div style="background-color:#33b5e5;border:none;width:100%;height:15%;margin-bottom:10px;"></div>
+                <div style="background-color:#33b5e5;border:none;width:100%;height:15%;margin-bottom:10px;"></div>
+                <div style="background-color:#33b5e5;border:none;width:100%;height:15%;margin-bottom:10px;"></div>
+                <div style="background-color:#33b5e5;border:none;width:100%;height:15%;"></div>
+            </div>
+            <div class="gridcontent" style="background-color:#ffffff;border:none;"></div>
+            <div class="gridcontent" style="background-color:#ffffff;border:none;"></div>
+            <div class="gridcontent" style="background-color:#ffffff;border:none;"></div>
+            <div class="gridcontent" style="background-color:#ffffff;border:none;"></div>
+            <div class="gridcontent" style="background-color:#ffffff;border:none;"></div>
+            <div class="gridcontent" style="background-color:#ffffff;border:none;"></div>
+            <div class="gridcontent" style="background-color:#ffffff;border:none;width:25%;padding-top:15px;">
+                <div style="background-color:#33b5e5;border:none;width:100%;height:92%;"></div>
+            </div>
+        </div>
+        <div class="gridwrapper" style="height:50px;">
+            <div class="gridcontent" style="width:100%;background:#0099cc;border-right-color:transparent;">
+            </div>
+        </div>
+    </div>
+</div>
+
