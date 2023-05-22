@@ -28,6 +28,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Mail}/{action=SendMail}/{id?}");
+    pattern: "{controller=Email}/{action=Send}/{id?}");
 
 app.Run();

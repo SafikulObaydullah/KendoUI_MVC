@@ -2,16 +2,51 @@
 
 @{
     ViewData["Title"] = "Send";
+   Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<style>
+   .form-container {
+      display: flex;
+      justify-content: center; /* Center horizontally */
+      align-items: center; /* Center vertically */
+      height: 100vh; /* Set the height to occupy the full viewport height */
+   }
+   .form-group input{
+      width: 650%;
+   }
 
-<h1>Send</h1>
+   .form-group h4 {
+      width: 650%;
+   }
+   h4 {
+      color: #333; /* Set the text color */
+      font-size: 1.5rem; /* Adjust the font size */
+      font-weight: bold; /* Set the font weight to bold */
+      margin: 0; /* Remove any default margin */
+      padding: 0; /* Remove any default padding */
+   }
 
-<h4>MailMessage</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Send">
+   body {
+      background-color: #f5f5f5; /* Set the background color */
+      /*background-image: url('path/to/background-image.jpg'); /* Set the background image */
+      /*background-image: url('images/emailimg.jpg');*/
+      /*background-image: url('images/emailimg2.png');*/
+      background-image: url('images/email-background.webp');
+      background-repeat: no-repeat; /* Prevent the background image from repeating */
+      background-position: center center; /* Position the background image in the center */
+      background-size: cover; /* Scale the background image to cover the entire element */
+   }
+
+</style>
+<div class="form-container">
+   <div class="row">
+      <div class="col-md-4">
+         <form asp-action="Send">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+               <h4>Customer Email Service</h4>
+               <br />
+            </div>
             <div class="form-group">
                <label asp-for="To" class="control-label"></label>
                <input asp-for="To" class="form-control" />
@@ -25,28 +60,27 @@
             <div class="form-group">
                <label asp-for="Bcc" class="control-label"></label>
                <input asp-for="Bcc" class="form-control" />
-            <span asp-validation-for="Bcc" class="text-danger"></span>
+               <span asp-validation-for="Bcc" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Subject" class="control-label"></label>
-                <input asp-for="Subject" class="form-control" />
-                <span asp-validation-for="Subject" class="text-danger"></span>
+               <label asp-for="Subject" class="control-label"></label>
+               <input asp-for="Subject" class="form-control" />
+               <span asp-validation-for="Subject" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Body" class="control-label"></label>
-                <input asp-for="Body" class="form-control" />
-                <span asp-validation-for="Body" class="text-danger"></span>
+               <label asp-for="Body" class="control-label"></label>
+               <input asp-for="Body" class="form-control" />
+               <span asp-validation-for="Body" class="text-danger"></span>
             </div>
+            <br />
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+               <input type="submit" value="Email Send" class="btn btn-primary" />
             </div>
-        </form>
-    </div>
+         </form>
+      </div>
+   </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
