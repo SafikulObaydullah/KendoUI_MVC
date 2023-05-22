@@ -1,8 +1,14 @@
-var builder = WebApplication.CreateBuilder(args);
+using KendoUI_MVC.Interface;
+using KendoUI_MVC.Models;
+using KendoUI_MVC.Services;
+using System.Configuration;
 
+var builder = WebApplication.CreateBuilder(args);
+//var settings = builder.Configuration.GetSection("MailSettings").Get<MailSettings>();
+builder.Services.Configure<MailSettings>(builder.Configuration.GetSection("MailSettings"));
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddTransient<IMailService, MailService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -22,6 +28,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Demo}/{action=SupplierInfo}/{id?}");
+    pattern: "{controller=Mail}/{action=SendMail}/{id?}");
 
 app.Run();

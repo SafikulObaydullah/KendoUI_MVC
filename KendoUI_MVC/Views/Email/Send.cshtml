@@ -1,0 +1,71 @@
+﻿@model KendoUI_MVC.Models.MailMessage
+
+@{
+    ViewData["Title"] = "Send";
+}
+
+<h1>Send</h1>
+
+<h4>MailMessage</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Send">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+               <label asp-for="To" class="control-label"></label>
+               <input asp-for="To" class="form-control" />
+               <span asp-validation-for="To" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+               <label asp-for="Cc" class="control-label"></label>
+               <input asp-for="Cc" class="form-control" />
+               <span asp-validation-for="Cc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+               <label asp-for="Bcc" class="control-label"></label>
+               <input asp-for="Bcc" class="form-control" />
+            <span asp-validation-for="Bcc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Subject" class="control-label"></label>
+                <input asp-for="Subject" class="form-control" />
+                <span asp-validation-for="Subject" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Body" class="control-label"></label>
+                <input asp-for="Body" class="form-control" />
+                <span asp-validation-for="Body" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+@*@section Scripts {
+   <script>
+       $(document).ready(function () {
+          $('#To').select2({
+             tags: true
+          });
+          $('#Cc').select2({
+             tags: true    
+          });
+          $('#Bcc').select2({
+             tags: true
+          });
+       });
+   </script>
+   }*@
+   @*@Scripts.Render("~/bundles/jqueryval")*@
+   
+

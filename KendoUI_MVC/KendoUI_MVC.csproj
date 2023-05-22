@@ -15,7 +15,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="MailKit" Version="4.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.13" />
+    <PackageReference Include="MimeKit" Version="4.0.0" />
+    <PackageReference Include="QuickMailer" Version="1.0.0.1" />
   </ItemGroup>
 
 </Project>
