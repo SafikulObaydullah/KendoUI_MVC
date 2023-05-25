@@ -30,7 +30,7 @@ namespace KendoUI_MVC.Controllers
                mailMessage.Body, ccMailAddresses, BccMailAddresses);
             if (isSend)
             {
-               mgs = "Email has been send.";
+               mgs = "Email has been send .";
                ClearAll();
             }
             ViewBag.Mgs = mgs;
