@@ -16,5 +16,9 @@ namespace KendoUI_MVC.Controllers
 		{
 			return View();
 		}
+      public IActionResult GridWrapper()
+      {
+         return View();
+      }
 	}
 }

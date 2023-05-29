@@ -1,0 +1,88 @@
+﻿@{
+   ViewData["Title"] = " ";
+   Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<style type="text/css">
+   div, aside, button {
+      display: block;
+      margin: 1rem auto;
+      text-align: center;
+   }
+
+   @@media print {
+
+      body {
+         display: block;
+      }
+      /*body *:not(#my-section):not(#my-section *) {
+            visibility:visible;
+         }
+
+         #my-section{
+            position:absolute;
+            top:0;
+            left:0;
+         }*/
+      .print-area, .print-area * {
+         display: block;
+      }
+   }
+
+   .print-area, .print-area * {
+      display: block;
+   }
+
+      .print-area p {
+         text-align: center;
+         font-size: 16px;
+      }
+</style>
+
+<div class="print-area">
+   <section>
+      <h3>Section 1 </h3>
+      <p>
+         Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+         Asperiores consequuntur cumque quo consectetur officiis
+         veniam est qui accusamus, quis nisi deserunt atque voluptatem
+         labore dolore. Laborum voluptas earum fugiat iste quas? Facere
+         rerum consequatur, voluptas laudantium corporis provident dolor tenetur,
+         porro aut nam omnis assumenda recusandae veniam quasi excepturi commodi.
+      </p>
+   </section>
+   <section>
+      <h3 id="my-section">Section 2</h3>
+      <p>
+         Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+         Asperiores consequuntur cumque quo consectetur officiis
+         veniam est qui accusamus, quis nisi deserunt atque voluptatem
+         labore dolore. Laborum voluptas earum fugiat iste quas? Facere
+         rerum consequatur, voluptas laudantium corporis provident dolor tenetur,
+         porro aut nam omnis assumenda recusandae veniam quasi excepturi commodi.
+      </p>
+   </section>
+
+</div>
+@*<aside>
+   Don't print me.
+</aside>*@
+<button id="printBtn">Print</button>
+
+<script type="text/javascript">
+   const btn = document.getElementById('printBtn');
+
+   btn.addEventListener('click', () => {
+      btn.style.display = 'none';
+      const box = document.getElementById('box');
+      box.style.display = 'block';
+   });
+
+   document.getElementById('printBtn').addEventListener('click', () => { window.print() });
+</script>
+

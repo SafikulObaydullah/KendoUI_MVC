@@ -1,0 +1,42 @@
+﻿@{
+   ViewData["Title"] = "Title";
+   Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script>
+   function printDiv() {
+      var divContents = document.getElementById("GFG").innerHTML;
+      var a = window.open('', '', 'height=500, width=500');
+      a.document.write('<html>');
+      a.document.write('<body > <h1>Div contents are <br>');
+      a.document.write(divContents);
+      a.document.write('</body></html>');
+      a.document.close();
+      a.print();
+   }
+</script>
+<div>
+   <center>
+      <div id="GFG" style="background-color: green;">
+
+         <h2>Geeksforgeeks</h2>
+
+         <table border="1">
+            <tr>
+               <td>computer</td>
+               <td>Algorithm</td>
+            </tr>
+            <tr>
+               <td>Microwave</td>
+               <td>Infrared</td>
+            </tr>
+         </table>
+      </div>
+
+      <p>
+         The table is inside the div and will get
+         printed on the click of button.
+      </p>
+      <button onclick="printDiv()">Clik</button> />
+   </center>
+
+</div>
