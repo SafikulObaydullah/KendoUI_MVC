@@ -20,5 +20,17 @@ namespace KendoUI_MVC.Controllers
       {
          return View();
       }
-	}
+      public IActionResult KActionSheet()
+      {
+         return View();
+      }
+      public IActionResult CaseListInfo()
+      {
+         return View();
+      }
+      public IActionResult CardView()
+      {
+         return View();
+      }
+   }
 }
