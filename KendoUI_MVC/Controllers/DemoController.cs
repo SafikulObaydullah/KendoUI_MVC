@@ -20,5 +20,17 @@ namespace KendoUI_MVC.Controllers
       {
          return View();
       }
-	}
+      public IActionResult QueryTest()
+      {
+         return View();
+      }
+      public IActionResult GridView()
+      {
+         return View();
+      }
+      public IActionResult KendoComboBox()
+      {
+         return View();
+      }
+   }
 }

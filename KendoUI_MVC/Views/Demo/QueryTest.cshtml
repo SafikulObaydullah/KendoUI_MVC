@@ -1,0 +1,62 @@
+﻿<style>
+   
+
+   .animated {
+      transition: all 1s ease-in-out;
+   }
+
+   .animate {
+      color: red;
+      font-size: 24px;
+      /* Add any other desired text-related styles */
+   }
+  </style>
+<div id="body">
+   <center>
+      <div>
+         <img src="./images/email-backgroundimg.jpg" width="500" />
+      </div>
+      <p id="data1">
+         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem repudiandae corrupti veniam
+         aliquid voluptates officia quisquam non sapiente, labore culpa eum tempora, quo nulla amet
+         quasi provident facere. Iste inventore quia alias, sed facilis neque voluptates sit. Nihil
+         ea eum ipsum dolorem a laboriosam laborum maxime aut quae dolores! Beatae, officia fugiat
+         tenetur autem repudiandae provident neque eius magni necessitatibus, ex architecto quibusdam
+         optio soluta perferendis quasi ducimus eum ipsa doloribus delectus molestias. Ducimus officia
+         nihil mollitia ipsa eius modi, sunt voluptates sapiente illum magni officiis. Excepturi
+         eos explicabo eveniet deserunt quae, recusandae, et facere ipsam sed natus ex accusantium.
+      </p>
+      <p id="data2">
+         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem repudiandae corrupti veniam
+         aliquid voluptates officia quisquam non sapiente, labore culpa eum tempora, quo nulla amet
+         quasi provident facere. Iste inventore quia alias, sed facilis neque voluptates sit. Nihil
+         ea eum ipsum dolorem a laboriosam laborum maxime aut quae dolores! Beatae, officia fugiat
+         tenetur autem repudiandae provident neque eius magni necessitatibus, ex architecto quibusdam
+         optio soluta perferendis quasi ducimus eum ipsa doloribus delectus molestias. Ducimus officia
+         nihil mollitia ipsa eius modi, sunt voluptates sapiente illum magni officiis. Excepturi
+         eos explicabo eveniet deserunt quae, recusandae, et facere ipsam sed natus ex accusantium.
+      </p>
+      <p id="data">
+         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem repudiandae corrupti veniam
+         aliquid voluptates officia quisquam non sapiente, labore culpa eum tempora, quo nulla amet
+         quasi provident facere. Iste inventore quia alias, sed facilis neque voluptates sit. Nihil
+         ea eum ipsum dolorem a laboriosam laborum maxime aut quae dolores! Beatae, officia fugiat
+         tenetur autem repudiandae provident neque eius magni necessitatibus, ex architecto quibusdam
+         optio soluta perferendis quasi ducimus eum ipsa doloribus delectus molestias. Ducimus officia
+         nihil mollitia ipsa eius modi, sunt voluptates sapiente illum magni officiis. Excepturi
+         eos explicabo eveniet deserunt quae, recusandae, et facere ipsam sed natus ex accusantium.
+      </p>
+      <button onclick="printPage()">Print Content</button>
+   </center>
+</div>
+<script type="text/javascript">
+   function printPage(){
+      var body = document.getElementById('body').innerHTML;
+      var data = document.getElementById('data').innerHTML;
+      var data1 = document.getElementById('data1').innerHTML;
+      var data2 = document.getElementById('data2').innerHTML;
+      document.getElementById('body').innerHTML = data + data1 + data2;
+      window.print();
+      document.getElementById('body').innerHTML = body;
+   }
+</script>
