@@ -1,0 +1,110 @@
+﻿<html>
+   <head>
+      <link href="https://kendo.cdn.telerik.com/2021.2.616/styles/kendo.common.min.css" rel="stylesheet" />
+<link href="https://kendo.cdn.telerik.com/2021.2.616/styles/kendo.default.min.css" rel="stylesheet" />
+<script src="https://kendo.cdn.telerik.com/2021.2.616/js/jquery.min.js"></script>
+<script src="https://kendo.cdn.telerik.com/2021.2.616/js/kendo.all.min.js"></script>
+
+   <script>
+      //$(document).ready(function () {
+      //   $("#tabstrip").kendoTabStrip({
+      //      select: onTabSelect
+      //   });
+      //});
+
+      $(document).ready(function () {
+         $("#tabstrip").kendoTabStrip({
+            select: function (e) {
+               var tabStripId = this.element[0].id;
+               console.log("TabStrip ID: " + tabStripId);
+            }
+         });
+      });
+
+
+      function onTabSelect(e) {
+         // Access the selected tab and its content
+         var selectedTab = $(e.item);
+         var selectedContent = $(e.contentElement);
+
+         // Perform actions based on the selected tab
+         console.log("Selected tab index: " + selectedTab.index());
+         console.log("Selected tab text: " + selectedTab.text());
+
+         // Example: Update the content of the selected tab
+         selectedContent.html("New contents for the selected tab");
+      }
+      //tabStrip = $("#tabstrip").kendoTabStrip().data("kendoTabStrip");
+      //tabStrip.select(0);
+
+
+      $("#caseDocfiles").kendoUpload({
+         validation: {
+            allowedExtensions: [".pdf", ".PDF", ".png", ".PNG", ".jpg", "jpeg", ".JPG", "JPEG"],
+            maxFileSize: 4194304
+         },
+         async: {
+            autoUpload: true
+         },
+         select: onSelectCase,
+      });
+      function onSelectCase(e) {
+         var id = this.element[0].id;//.split('_')[1]
+         this.clearAllFiles()
+         var fileInfo = e.files[0];
+         var wrapper = this.wrapper;
+
+         setTimeout(function () {
+            addPreviewDocImage(fileInfo, wrapper, id);
+         });
+      }
+   </script>
+   </head>
+   <body>
+   <div id="tabstrip">
+      <ul>
+         <li class="k-state-active">Tab 1</li>
+         <li>Tab 2</li>
+         <li>Tab 3</li>
+      </ul>
+      <div>
+         <div class="row">
+            <div class="col-md-12">
+               <div class="modal-content cs_modal">
+                  <div class="modal-header  theme_bg_mainpage_modal_header">
+                     <h7 class="modal-title">Upload New Document</h7>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-3">
+                        <span>Document Type</span> <input id="ddlDocumentType" style="width:100%" />
+                     </div>
+                     <div class="col-md-2">
+                        <span>Issue Date</span> <input id="txtIssueDate" class="Kdatepicker" style="width:100%" />
+                     </div>
+                     <div class="col-md-6">
+                        <span>Description</span> <input id="txtDocDescription" class="textbox" style="width:100%" />
+                     </div>
+
+                     <div class="col-md-3" style="margin-top: 17px;">
+                        <span></span> <input name="caseDocfiles" id="caseDocfiles" type="file" aria-label="caseDocfiles" />
+                     </div>
+                     <div class="col-md-2" style="margin-top:17px">
+                        <button class="btn btn-success" onclick="SaveCaseDocuments()">Upload </button>
+                        <button class="btn btn-danger" onclick="ClearCaseDocuments()">Clear</button>
+                     </div>
+                  </div>
+
+               </div>
+            </div>
+         </div>
+      </div>
+      <div>
+         Content for Tab 2
+      </div>
+      <div>
+         Content for Tab 3
+      </div>
+   </div>
+   
+   </body>
+</html>

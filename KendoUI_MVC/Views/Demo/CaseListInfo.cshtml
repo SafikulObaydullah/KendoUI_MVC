@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "Case List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Assets/lib/CommonUI/js/casemanagement/CaseList.js?v=@DateTime.Now.ToString("yymmddHHmmss")"></script>
+
+<div class="main_content_iner pt-0" style="padding: 0 2px;">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="modal-content cs_modal">
+                    <div class="modal-header justify-content-center theme_bg_mainpage_modal_header">
+                        <h5 class="modal-title">CASE LIST</h5>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div id="ex0">
+                                <div class="row">
+                                    <div class="col-md-2"><span>Case No</span> <input id="caseNo" class="textbox" style="width:100%" /></div>
+                                    <div class="col-md-2"><span>Case Year</span> <input id="year" class="Kyear" style="width:100%" /></div>
+                                    <div class="col-md-2"><span>Court Type</span><input style="width: 100% !important" type="text" class="k-combo" id="cmbCourtType" autocomplete="off" /></div>
+                                    <div class="col-md-2"><span>Court</span><input id="cmbCourt" class="k-combo" style="width: 100%;" /></div>     
+                                    <div class="col-md-2"><span>Case Category</span><input style="width: 100% !important" type="text" class="k-combo" id="cmbCaseCategory" autocomplete="off" /></div>
+                                </div>
+                                <div class="row">  
+                                    
+                                    <div class="col-md-2"><span>Case Type</span><input id="cmbCaseType" class="k-combo" style="width: 100%;" /></div>
+                                    <div class="col-md-2"><span>Issue Date From</span> <input id="issueDateFrom" class="Kdatepicker" style="width:100%" /></div>
+                                    <div class="col-md-2"><span>Issue Date To</span> <input id="issueDateTo" class="Kdatepicker" style="width:100%" /></div>  
+                                    <div class="col-md-2"><span>Concerned Office</span><input style="width: 100% !important" type="text" class="k-combo" id="cmbConcOffice" autocomplete="off" /></div>
+                                    <div class="col-md-2"><span>Concerned Person</span><input id="cmbConcPerson" class="k-combo" style="width: 100%;" /></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-2"><button id="btnSearch" onclick="SearchFilter()" style="margin-top:19px;" class="k-primary primaryTextButton w-100">Search</button></div>
+                                    <div class="col-md-2"><button id="btnClear" onclick="ClearFields()" style="margin-top:19px;" class="k-primary primaryTextButton w-100">Clear</button></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 mt-2">
+                                <div class="row">
+                                <div id="tblCaseList" class="ps-0 pe-0" style="height: 800px;width:100%;"></div>
+                                </div>
+                        </div>
+                    </div>
+                    <br />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
