@@ -6,20 +6,20 @@
 <script src="https://kendo.cdn.telerik.com/2021.2.616/js/kendo.all.min.js"></script>
 
    <script>
-      //$(document).ready(function () {
-      //   $("#tabstrip").kendoTabStrip({
-      //      select: onTabSelect
-      //   });
-      //});
-
       $(document).ready(function () {
          $("#tabstrip").kendoTabStrip({
-            select: function (e) {
-               var tabStripId = this.element[0].id;
-               console.log("TabStrip ID: " + tabStripId);
-            }
+            select: onTabSelect
          });
       });
+
+      //$(document).ready(function () {
+      //   $("#tabstrip").kendoTabStrip({
+      //      select: function (e) {
+      //         var tabStripId = this.element[0].id;
+      //         console.log("TabStrip ID: " + tabStripId);
+      //      }
+      //   });
+      //});
 
 
       function onTabSelect(e) {
