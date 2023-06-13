@@ -1,6 +1,9 @@
+using KendoUI_MVC.ApplicationDB;
 using KendoUI_MVC.Interface;
 using KendoUI_MVC.Models;
 using KendoUI_MVC.Services;
+using Microsoft.EntityFrameworkCore;
+//using Microsoft.EntityFrameworkCore;
 using System.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +12,11 @@ builder.Services.Configure<MailSettings>(builder.Configuration.GetSection("MailS
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddTransient<IMailService, MailService>();
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+{
+   options.UseSqlServer(builder.Configuration.GetConnectionString("DevConnection"));
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -28,6 +36,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Demo}/{action=GridWrapper}/{id?}");
+    pattern: "{controller=Kendo}/{action=NotifyConsignee}/{id?}");
 
 app.Run();
