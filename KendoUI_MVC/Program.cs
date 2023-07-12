@@ -28,6 +28,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Demo}/{action=GridWrapper}/{id?}");
+    pattern: "{controller=Demo}/{action=CreatePanel}/{id?}");
 
 app.Run();
