@@ -48,7 +48,13 @@
    <input id="combobox" />
    <script>
       $("#combobox").kendoComboBox({
-         animation: true
+         dataSource: ["Option 1", "Option 2", "Option 3"] 
+         //placeholder: "Select an option..." 
+         //select: function (e) {
+         //   var selectedOption = e.item.text() 
+         //   // Custom logic based on the selected option
+         //},
+         //template: "<div>#: data.text # <span class='additional-info'>#: data.additionalInfo #</span></div>"
       });
    </script>
   

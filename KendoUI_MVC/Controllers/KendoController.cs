@@ -1,11 +1,12 @@
 ﻿using KendoUI_MVC.ApplicationDB;
 using KendoUI_MVC.Models;
+using Microsoft.AspNetCore.Mvc;
 //using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using Newtonsoft.Json.Linq;
 using System.Data;
 using System.Security.Cryptography;
-using System.Web.Mvc;
+ 
 
 namespace KendoUI_MVC.Controllers
 {
@@ -90,5 +91,17 @@ namespace KendoUI_MVC.Controllers
       //      return JsonResult(new { success = false, message = ex.Message });
       //   }
       //}
+      public ActionResult NotifyConsignee()
+      { 
+         return View(); 
+      }
+      public ActionResult ItemInfo()
+      {
+         return View(); 
+      }
+      public IActionResult SaveItemInfo(List<ItemInfo> objItemList)
+      {
+         return Json("Success", System.Web.Mvc.JsonRequestBehavior.AllowGet);
+      }
    }
 }
