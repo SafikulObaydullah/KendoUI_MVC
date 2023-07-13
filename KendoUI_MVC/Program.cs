@@ -36,6 +36,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Kendo}/{action=ItemInfo}/{id?}");
+    pattern: "{controller=Kendo}/{action=NotifyConsignee}/{id?}");
 
 app.Run();
