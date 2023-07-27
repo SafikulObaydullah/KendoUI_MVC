@@ -36,6 +36,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Kendo}/{action=NotifyConsignee}/{id?}");
+    pattern: "{controller=Demo}/{action=CurrencyConverter}/{id?}");
 
 app.Run();

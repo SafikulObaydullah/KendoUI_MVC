@@ -24,5 +24,9 @@ namespace KendoUI_MVC.Controllers
       {
          return View();
       }
+      public IActionResult CurrencyConverter()
+      {
+         return View();
+      }
    }
 }
