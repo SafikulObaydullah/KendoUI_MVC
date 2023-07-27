@@ -28,5 +28,9 @@ namespace KendoUI_MVC.Controllers
       {
          return View();
       }
+      public IActionResult Company()
+      {
+         return View();
+      }
    }
 }
