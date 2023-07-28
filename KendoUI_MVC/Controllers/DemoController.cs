@@ -36,5 +36,13 @@ namespace KendoUI_MVC.Controllers
       {
          return View();
       }
+      public IActionResult Project()
+      {
+         return View();
+      }
+      public IActionResult Measurement()
+      {
+         return View();
+      }
    }
 }
