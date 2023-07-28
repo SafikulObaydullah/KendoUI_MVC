@@ -32,5 +32,9 @@ namespace KendoUI_MVC.Controllers
       {
          return View();
       }
+      public IActionResult Machine()
+      {
+         return View();
+      }
    }
 }
